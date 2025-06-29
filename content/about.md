@@ -1,4 +1,4 @@
-# Bem-vindo(a) ao meu Blog Pessoal! 📝
+# Bem-vindo(a) ao Blog "Diário de um Dev JR"! 📝
 
 Olá! 👋 Me chamo Luiz Gustavo Saraiva. Este é um espaço onde compartilho minha jornada de aprendizado no universo da tecnologia.
 
