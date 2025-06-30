@@ -2,51 +2,15 @@
 name: Diário de um Dev JR
 tagline: Publicações semanais sobre assuntos que estudo, curiosidades, dificuldades e dúvidas sobre diferentes stacks e sobre as minhas experiências pessoais que rodeiam um dev júnior
 
+# As linhas abaixo foram desativadas para deixar o GitHub Pages controlar os caminhos
+# url: "https://lg8609a.github.io"
+# baseurl: "/lg8609"
+
 # Configuração do tema remoto
 remote_theme: rocha-bruno/marmite
 
 plugins:
   - jekyll-remote-theme
-
-# Configuração do tema e esquema de cores
-theme:
-  name: default
-  colorscheme: dark
-
-# Habilitar funcionalidades
-enable_search: true
-enable_comments: true
-enable_backlinks: true
-
-# Cores personalizadas para o modo escuro
-colors:
-  dark:
-    primary: "#6366f1"
-    secondary: "#8b5cf6"
-    accent: "#0ea5e9"
-    background: "#0d1117"
-    text: "#e6edf3"
-    code_bg: "#161b22"
-    code_fg: "#c9d1d9"
-    surface: "#161b22"
-    border: "#30363d"
-    card: "#161b22"
-    hover: "#30363d"
-
-# Configuração dos comentários (Utterances)
-extra:
-  comments:
-    title: Comentários
-    repo: "lg8609a/lg8609" # Seu repositório
-    source: |
-      <script src="https://utteranc.es/client.js"
-              repo="lg8609a/lg8609" # Seu repositório
-              issue-term="pathname"
-              label="comment"
-              theme="github-dark"
-              crossorigin="anonymous"
-              async>
-      </script>
 
 # Menu de Navegação
 menu:
