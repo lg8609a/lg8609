@@ -14,8 +14,8 @@ plugins:
 
 # Menu de Navegação
 menu:
-  - ["About", "/content/about.html"]
-  - ["Pages", "/content/pages.html"]
-  - ["Tags", "/content/tags.html"]
+  - ["About", "content/about.html"]
+  - ["Pages", "content/pages.html"]
+  - ["Tags", "content/tags.html"]
   - ["Follow me", "https://www.linkedin.com/in/luizgns/"]
   - ["Github", "https://github.com/lg8609a"]
