@@ -5,6 +5,9 @@ title: Diário de um Dev JR
 description: Publicações semanais sobre assuntos que estudo, curiosidades, dificuldades e dúvidas sobre diferentes stacks e sobre as minhas experiências pessoais que rodeiam um dev júnior
 author: Luiz Gustavo Saraiva
 
+url: "https://lg8609a.github.io"
+baseurl: "/lg8609"
+
 menu:
   - ["About", "/content/about.html"]
   - ["Pages", "/content/pages.html"]
