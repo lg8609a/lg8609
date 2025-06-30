@@ -8,7 +8,6 @@ remote_theme: rocha-bruno/marmite
 plugins:
   - jekyll-remote-theme
 
-
 # Configuração do tema e esquema de cores
 theme:
   name: default
@@ -33,6 +32,21 @@ colors:
     border: "#30363d"
     card: "#161b22"
     hover: "#30363d"
+
+# Configuração dos comentários (Utterances)
+extra:
+  comments:
+    title: Comentários
+    repo: "lg8609a/lg8609" # Seu repositório
+    source: |
+      <script src="https://utteranc.es/client.js"
+              repo="lg8609a/lg8609" # Seu repositório
+              issue-term="pathname"
+              label="comment"
+              theme="github-dark"
+              crossorigin="anonymous"
+              async>
+      </script>
 
 # Menu de Navegação
 menu:
