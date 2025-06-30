@@ -1,20 +1,34 @@
-name: Diário de um Dev JR
-tagline: Publicações semanais sobre assuntos que estudo, curiosidades, dificuldades e dúvidas sobre diferentes stacks e sobre as minhas experiências pessoais que rodeiam um dev júnior
-#url: "https://lg8609a.github.io"
-#baseurl: "/lg8609"
+# Marmite Blog Configuration
 
-remote_theme: rocha-bruno/marmite
+# Site details
+title: Diário de um Dev JR
+description: O objetivo deste blog é simples: **compartilhar conhecimento**! 
 
-plugins:
- - jekyll-remote-theme
- 
-menu:
-  - ["About", "/content/about.html"]
-  - ["Pages", "/content/pages.html"]
-  - ["Tags", "/content/tags.html"]
-  - ["Follow me", "https://www.linkedin.com/in/luizgns/"]
-  - ["Github", "https://github.com/lg8609a"]
+Quero documentar meus estudos, fixar conceitos importantes e ajudar quem também está nessa jornada de início na tecnologia. Além disso, busco criar novas conexões, conhecer outros profissionais e contar um pouco da minha história.
+url: https://lg8609a.github.io/lg8609/
+author: Luiz Gustavo Saraiva
 
+# Theme configuration
+theme:
+  name: default
+  colorscheme: dark
 
-# More options available to customize the website
-# read on https://rochacbruno.github.io/marmite/tag/customization.html
+# Enable features
+enable_search: true
+enable_comments: true
+enable_backlinks: true
+
+# Dark mode colors fixed
+colors:
+  dark:
+    primary: "#6366f1"
+    secondary: "#8b5cf6"
+    accent: "#0ea5e9"
+    background: "#0d1117"
+    text: "#e6edf3"
+    code_bg: "#161b22"
+    code_fg: "#c9d1d9"
+    surface: "#161b22"
+    border: "#30363d"
+    card: "#161b22"
+    hover: "#30363d" 
