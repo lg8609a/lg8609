@@ -8,7 +8,7 @@ plugins:
  - jekyll-remote-theme
  
 menu:
-  - ["About", "/content/about.md"]
+  - ["About", "/content/about.html"]
   - ["Pages", "pages.html"]
   - ["Tags", "tags.html"]
   - ["Follow me", "https://www.linkedin.com/in/luizgns/"]
