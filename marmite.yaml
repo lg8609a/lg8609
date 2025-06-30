@@ -1,31 +1,25 @@
-# Marmite Blog Configuration
+# Configurações principais do site
+name: Diário de um Dev JR
+tagline: Publicações semanais sobre assuntos que estudo, curiosidades, dificuldades e dúvidas sobre diferentes stacks e sobre as minhas experiências pessoais que rodeiam um dev júnior
 
-# Site details
-title: Diário de um Dev JR
-description: Publicações semanais sobre assuntos que estudo, curiosidades, dificuldades e dúvidas sobre diferentes stacks e sobre as minhas experiências pessoais que rodeiam um dev júnior
-author: Luiz Gustavo Saraiva
+# Configuração do tema remoto
+remote_theme: rocha-bruno/marmite
 
-url: "https://lg8609a.github.io"
-baseurl: "/lg8609"
+plugins:
+  - jekyll-remote-theme
 
-menu:
-  - ["About", "/content/about.html"]
-  - ["Pages", "/content/pages.html"]
-  - ["Tags", "/content/tags.html"]
-  - ["Follow me", "https://www.linkedin.com/in/luizgns/"]
-  - ["Github", "https://github.com/lg8609a"]
 
-# Theme configuration
+# Configuração do tema e esquema de cores
 theme:
   name: default
   colorscheme: dark
 
-# Enable features
+# Habilitar funcionalidades
 enable_search: true
 enable_comments: true
 enable_backlinks: true
 
-# Dark mode colors fixed
+# Cores personalizadas para o modo escuro
 colors:
   dark:
     primary: "#6366f1"
@@ -38,4 +32,12 @@ colors:
     surface: "#161b22"
     border: "#30363d"
     card: "#161b22"
-    hover: "#30363d" 
+    hover: "#30363d"
+
+# Menu de Navegação
+menu:
+  - ["About", "/content/about.html"]
+  - ["Pages", "/content/pages.html"]
+  - ["Tags", "/content/tags.html"]
+  - ["Follow me", "https://www.linkedin.com/in/luizgns/"]
+  - ["Github", "https://github.com/lg8609a"]
