@@ -5,6 +5,13 @@ title: Diário de um Dev JR
 description: Publicações semanais sobre assuntos que estudo, curiosidades, dificuldades e dúvidas sobre diferentes stacks e sobre as minhas experiências pessoais que rodeiam um dev júnior
 author: Luiz Gustavo Saraiva
 
+menu:
+  - ["About", "/content/about.html"]
+  - ["Pages", "/content/pages.html"]
+  - ["Tags", "/content/tags.html"]
+  - ["Follow me", "https://www.linkedin.com/in/luizgns/"]
+  - ["Github", "https://github.com/lg8609a"]
+
 # Theme configuration
 theme:
   name: default
