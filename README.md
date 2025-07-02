@@ -1,6 +1,6 @@
 # Olá, seja bem-vindo(a)! 👋 
 
-Olá! Me chamo Luiz Gustavo Saraiva. Este é um espaço onde compartilho minha jornada de aprendizado no universo da tecnologia. A ideia deste blog é compartilhar conhecimento, desenvolver a minha escrita, meu entendimento sobre as tecnologias e principalmente **construir conexões** na área de tecnologia. 
+Olá! Me chamo Luiz Gustavo Saraiva. Este é um espaço onde compartilho minha jornada de aprendizado no universo da tecnologia. A ideia deste blog é compartilhar conhecimento, desenvolver a minha escrita, meu entendimento sobre as stacks e principalmente **construir conexões** na área de tech. 
 
 Espero também que este blog seja um espaço de aprendizado! Você, desenvolvedor mais experiente, sinta-se à vontade para contribuir com conhecimento, corrigir ou acrescentar algo. Conecte-se comigo no linkedin, comente as postagens, me mande uma mensagem e me ajude a "lapidar" os conhecimentos
 
