@@ -45,7 +45,7 @@ O Controller atua como o intermediário, o "maestro" que rege a comunicação en
 
 Para ficar ainda mais claro, vamos a um exemplo prático e simplificado de como o MVC funciona em uma aplicação web:
 
-1. **Ação do Usuário:** O usuário acessa a URL www.sualoja.com/produtos no navegador.
+1. **Ação do Usuário:** O usuário acessa a URL www.exemplositeloja.com/produtos no navegador.
 2. **O Roteador e o Controller:** A aplicação identifica, através de um sistema de rotas, que essa requisição deve ser gerenciada pelo ProdutoController.
 3. **O Controller Trabalha:** O ProdutoController é acionado e entende que precisa listar todos os produtos. Ele então solicita essa lista ao ProdutoModel.
 4. **O Model Busca os Dados:** O ProdutoModel se conecta ao banco de dados, busca todos os produtos cadastrados e retorna essa lista para o ProdutoController.
