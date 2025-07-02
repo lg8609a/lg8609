@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% block head %}
+    {{ super() }}
+    <style>
+    .content-banner-image {
+        background-size: cover;
+        background-position: center;
+        height: 300px;
+        margin-bottom: 20px;
+        background-image: url('static/banner-dev-jr.png');
+    }
+    .main-div {
+        display: flex;
+        grid-column-gap: 10px;
+        grid-row-gap: 0px;
+    }
+    .left {
+        width: 70%;
+    }
+    .right {
+        width: 30%;
+    }
+    .right li {
+        list-style-type: none;
+    }
+    .author-card img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+    }
+    @media (max-width: 1024px) {
+        .main-div {
+            display: block;
+        }
+        .left {
+            width: 100%;
+        }
+        .right {
+            width: 100%;
+        }
+    }
+    </style>
+{% endblock %}
+
+{% block main %}
+<div class="content-banner-image"></div>
+<div class="main-div">
+    <div class="left">
+            {% if hero is defined %}
+            <div class="hero">
+                <article>
+                    {{hero}}
+                </article>
+            </div>
+            {% endif %}
+
+            {%- for content in content_list %}
+            <article class="content-card">
+                <h2 class="content-title"><a href="./{{content.slug}}.html">{{ content.title }}</a></h2>
+                <p class="content-excerpt">
+                    {% if content.description %}
+                    {{ content.description | replace(from='"', to="") | truncate(length=250, end=" ...") }}
+                    {% else %}
+                    {{ content.html | striptags | trim_start_matches(pat=content.title) | truncate(length=250, end=" ...") }}
+                    {%- endif %}
+                    <a class="secondary" href="./{{content.slug}}.html">read more &rarr;</a>
+                </p>
+                {% if content.date -%}
+                <footer class="data-tags-footer">
+                    <span class="content-date"><a class="secondary" href="./{{content.slug}}.html">{{ content.date | default_date_format }}</a></span>
+                    {% if content.tags -%}
+                    <ul class="content-tags overflow-auto">
+                        {% for tag in content.tags | slice(end=3) -%}
+                        <li><a href="./tag-{{ tag | trim | slugify }}.html">{{ tag }}</a></li>
+                        {%- endfor %}
+                    </ul>
+                    {%- endif %}
+                </footer>
+                {%- endif %}
+            </article>
+            {%- endfor %}
+            {% if total_pages is defined and total_pages > 1 %}
+                {% include "pagination.html" ignore missing %}
+            {% endif %}
+        
+    </div>
+    <div class="right">
+        {% include "author_card.html" %}
+        <article>
+            <header>Páginas</header>
+            <ul>
+            {% for page in site_data.pages %}
+            <li><a href="{{page.slug}}.html">{{page.title}}</a></li>
+            {% endfor %}
+            </ul>
+        </article>
+        <article>
+            <header>Tags</header>
+            <ul>
+            {% for name, _ in group(kind="tag") %}
+            <li><a href="tag-{{name | slugify}}.html">#{{name | slugify}}</a></li>
+            {% endfor %}
+            </ul>
+        </article>
+        <article>
+            <header>Arquivos</header>
+            <ul>
+            {% for year, _ in group(kind="archive") %}
+            <li><a href="archive-{{year}}.html">{{year}}</a></li>
+            {% endfor %}
+            </ul>
+        </article>
+    </div>
+</div> 
+{% endblock %}

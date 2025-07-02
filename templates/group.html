@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {% if kind == "tag" %}
+        Tags | Diário de um Dev JR
+    {% elif kind == "archive" %}
+        Arquivo | Diário de um Dev JR
+    {% else %}
+        Diário de um Dev JR
+    {% endif %}
+{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <style>
+    .group-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin: 32px 0 24px 0;
+        padding: 0;
+        list-style: none;
+    }
+    .group-list li {
+        background: #fff;
+        border-radius: 6px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        padding: 10px 18px;
+        font-size: 1.1rem;
+        font-weight: 500;
+        transition: box-shadow 0.2s, background 0.2s;
+    }
+    .group-list li a {
+        color: #0077cc;
+        text-decoration: none;
+    }
+    .group-list li a:hover {
+        text-decoration: underline;
+    }
+    @media (max-width: 600px) {
+        .group-list {
+            flex-direction: column;
+            gap: 8px;
+        }
+    }
+    </style>
+{% endblock %}
+
+{% block main %}
+<div style="max-width: 900px; margin: 0 auto;">
+    {% if kind == "tag" %}
+        <h1 style="margin-top:32px;">Tags</h1>
+        <ul class="group-list">
+            {% for name, posts in group(kind="tag") %}
+                <li>
+                    <a href="tag-{{ name | trim | slugify }}.html">#{{ name | trim }}</a>
+                    <span style="color:#888; font-size:0.95em;">({{ posts | length }})</span>
+                </li>
+            {% endfor %}
+        </ul>
+    {% elif kind == "archive" %}
+        <h1 style="margin-top:32px;">Arquivo</h1>
+        <ul class="group-list">
+            {% for year, posts in group(kind="archive") %}
+                <li>
+                    <a href="archive-{{ year }}.html">{{ year }}</a>
+                    <span style="color:#888; font-size:0.95em;">({{ posts | length }})</span>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+{% endblock %} 

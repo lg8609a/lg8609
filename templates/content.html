@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}{{ content.title | default(value="Página") }} | Diário de um Dev JR{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <style>
+    .main-div {
+        display: flex;
+        gap: 40px;
+        max-width: 1200px;
+        margin: 0 auto 0 auto;
+    }
+    .left {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+    }
+    .right {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+    @media (max-width: 1024px) {
+        .main-div {
+            display: block;
+        }
+        .left, .right {
+            width: 100%;
+        }
+    }
+    </style>
+    <link rel="stylesheet" href="static/custom.css?v=1">
+{% endblock %}
+
+{% block main %}
+<div style="max-width: 1200px; margin: 0 auto;">
+    <div class="main-div">
+        <div class="left">
+            <article class="content-card">
+                <div class="content-html">
+                    {{ content.html | safe }}
+                </div>
+            </article>
+        </div>
+        <div class="right">
+            {% include "author_card.html" %}
+            <article>
+                <header>Páginas</header>
+                <ul>
+                {% for page in site_data.pages %}
+                <li><a href="{{page.slug}}.html">{{page.title}}</a></li>
+                {% endfor %}
+                {% if content_list is defined %}
+                {% for content in content_list %}
+                {% if content.is_page %}
+                <li><a href="{{content.slug}}.html">{{content.title}}</a></li>
+                {% endif %}
+                {% endfor %}
+                {% endif %}
+                </ul>
+            </article>
+            <article>
+                <header>Tags</header>
+                <ul>
+                {% for name, _ in group(kind="tag") %}
+                <li><a href="tag-{{name | slugify}}.html">#{{name | slugify}}</a></li>
+                {% endfor %}
+                </ul>
+            </article>
+            <article>
+                <header>Arquivos</header>
+                <ul>
+                {% for year, _ in group(kind="archive") %}
+                <li><a href="archive-{{year}}.html">{{year}}</a></li>
+                {% endfor %}
+                </ul>
+            </article>
+        </div>
+    </div>
+</div>
+{% endblock %} 

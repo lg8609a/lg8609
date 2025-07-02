@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Diário de um Dev JR</title><link>https://lg8609a.github.io</link><description>Publicações semanais sobre assuntos que estudo, curiosidades, dificuldades e dúvidas sobre diferentes stacks e sobre as minhas experiências pessoais que rodeiam um dev júnior</description><pubDate>Tue, 01 Jul 2025 00:00:00 GMT</pubDate><lastBuildDate>Wed, 02 Jul 2025 00:52:04 GMT</lastBuildDate><generator>marmite</generator><item><title>O que é Padrão MVC (Model-View-Controller)?</title><link>https://lg8609a.github.io/o-que-e-padra-o-mvc-model-view-controller.html</link><description><![CDATA["Se você está iniciando sua jornada no mundo da programação, provavelmente já se deparou com a sigla \"MVC\". Neste post, vamos entender o que é o MVC e como ele pode ser seu grande aliado na criação de projetos mais limpos e fáceis de manter."]]></description><category>Arquitetura de Software</category><category>Design Patterns</category><category>MVC</category><category>Boas Práticas</category><guid>https://lg8609a.github.io/o-que-e-padra-o-mvc-model-view-controller.html</guid><pubDate>Tue, 01 Jul 2025 00:00:00 GMT</pubDate><source url="https://lg8609a.github.io">tag-arquitetura-de-software</source><content:encoded><![CDATA[<h1><a href="#o-que-é-padrão-mvc-model-view-controller" aria-hidden="true" class="anchor" id="o-que-é-padrão-mvc-model-view-controller"></a>O Que é Padrão MVC (Model-View-Controller)?</h1>
+<p>Se você está iniciando sua jornada no mundo da programação, provavelmente já se deparou com a sigla MVC. Longe de ser um bicho de sete cabeças, o MVC é um padrão de arquitetura que organiza o código de forma lógica e eficiente, sendo um dos pilares no desenvolvimento de inúmeras aplicações. Neste post, vamos entender o que é o MVC e como ele pode ser seu grande aliado na criação de projetos mais limpos e fáceis de manter.</p>
+<p>Imagine que você está montando um quebra-cabeça. Você não joga todas as peças na mesa e tenta encaixá-las de qualquer maneira. O mais provável é que você separe as peças pelas bordas, pelas cores e, aos poucos, vá montando as seções. O MVC, ou Model-View-Controller, funciona de maneira semelhante para o seu código. Ele propõe a divisão da sua aplicação em três camadas principais, cada uma com uma responsabilidade bem definida.</p>
+<p>Essa separação, conhecida como &quot;separação de conceitos&quot;, é a chave para um código mais organizado, reutilizável e muito mais fácil de dar manutenção, especialmente em projetos que tendem a crescer.</p>
+<h2><a href="#as-três-peças-do-quebra-cabeça-model-view-e-controller" aria-hidden="true" class="anchor" id="as-três-peças-do-quebra-cabeça-model-view-e-controller"></a>As Três Peças do Quebra-Cabeça: Model, View e Controller</h2>
+<p>Vamos entender o papel de cada componente do MVC com uma analogia simples: um restaurante.</p>
+<h3><a href="#1-model-o-modelo--a-cozinha" aria-hidden="true" class="anchor" id="1-model-o-modelo--a-cozinha"></a>1. Model (O Modelo | A Cozinha)</h3>
+<p>O Model é a camada que cuida dos dados e da lógica de negócio da sua aplicação. Pense nele como a cozinha do restaurante. É aqui que os ingredientes (dados) são armazenados, preparados e processados. Se você precisa buscar informações no banco de dados, validar dados que chegam de um formulário ou executar qualquer regra de negócio (como calcular o valor total de um pedido), é o Model que entra em ação.</p>
+<p><strong>Principais responsabilidades do Model:</strong></p>
+<ul>
+<li>Acessar e manipular o banco de dados.</li>
+<li>Conter as regras de negócio da aplicação.</li>
+<li>Gerenciar o estado dos dados.</li>
+</ul>
+<h3><a href="#2-view-a-visão--o-salão-do-restaurante" aria-hidden="true" class="anchor" id="2-view-a-visão--o-salão-do-restaurante"></a>2. View (A Visão | O Salão do Restaurante)</h3>
+<p>A View é a parte da aplicação com a qual o usuário interage. É a interface gráfica: as páginas HTML, os formulários, os botões e tudo o que é exibido no Front da aplicação. No nosso restaurante, a View seria o salão, onde os clientes (usuários) veem o cardápio e recebem seus pratos. A View é responsável por apresentar os dados que vêm do Model de uma forma amigável para o usuário.</p>
+<p><strong>Principais responsabilidades da View:</strong></p>
+<ul>
+<li>Exibir os dados para o usuário.</li>
+<li>Capturar as interações do usuário (cliques, preenchimento de formulários, etc.).</li>
+<li>Não possui lógica de negócio; sua única função é apresentar.</li>
+</ul>
+<h3><a href="#3-controller-o-controlador--o-garçom" aria-hidden="true" class="anchor" id="3-controller-o-controlador--o-garçom"></a>3. Controller (O Controlador | O Garçom)</h3>
+<p>O Controller atua como o intermediário, o &quot;maestro&quot; que rege a comunicação entre o Model e a View. Ele é o garçom do nosso restaurante. Quando um cliente faz um pedido (uma ação na View), o garçom (Controller) anota o pedido e o leva para a cozinha (Model). A cozinha prepara o prato (processa os dados) e o entrega ao garçom, que por sua vez o leva até a mesa do cliente (atualiza a View com as informações solicitadas).</p>
+<p><strong>Principais responsabilidades do Controller:</strong></p>
+<ul>
+<li>Receber as requisições do usuário vindas da View.</li>
+<li>Acionar os métodos apropriados no Model para manipular os dados.</li>
+<li>Enviar os dados processados pelo Model para a View correta ser exibida.</li>
+</ul>
+<h2><a href="#como-tudo-se-conecta-o-fluxo-em-uma-aplicação-web" aria-hidden="true" class="anchor" id="como-tudo-se-conecta-o-fluxo-em-uma-aplicação-web"></a>Como Tudo se Conecta: O Fluxo em uma Aplicação Web</h2>
+<p>Para ficar ainda mais claro, vamos a um exemplo prático e simplificado de como o MVC funciona em uma aplicação web:</p>
+<ol>
+<li><strong>Ação do Usuário:</strong> O usuário acessa a URL <a href="http://www.sualoja.com/produtos">www.sualoja.com/produtos</a> no navegador.</li>
+<li><strong>O Roteador e o Controller:</strong> A aplicação identifica, através de um sistema de rotas, que essa requisição deve ser gerenciada pelo ProdutoController.</li>
+<li><strong>O Controller Trabalha:</strong> O ProdutoController é acionado e entende que precisa listar todos os produtos. Ele então solicita essa lista ao ProdutoModel.</li>
+<li><strong>O Model Busca os Dados:</strong> O ProdutoModel se conecta ao banco de dados, busca todos os produtos cadastrados e retorna essa lista para o ProdutoController.</li>
+<li><strong>O Controller Prepara a Resposta:</strong> Com a lista de produtos em mãos, o ProdutoController decide qual interface será exibida. Ele chama a listaDeProdutosView.</li>
+<li><strong>A View é Renderizada:</strong> O Controller entrega a lista de produtos para a View. A View, por sua vez, organiza essas informações em um formato HTML e as exibe para o usuário no navegador.</li>
+</ol>
+<h2><a href="#por-que-usar-mvc-vantagens-para-o-desenvolvedor-júnior" aria-hidden="true" class="anchor" id="por-que-usar-mvc-vantagens-para-o-desenvolvedor-júnior"></a>Por que usar MVC? Vantagens para o Desenvolvedor Júnior</h2>
+<p>Adotar o MVC desde o início da sua carreira pode trazer enormes benefícios:</p>
+<ul>
+<li><strong>Organização é Tudo:</strong> Com o código separado em camadas, fica muito mais fácil encontrar o que você precisa e entender a estrutura do projeto.</li>
+<li><strong>Manutenção Simplificada:</strong> Precisa alterar o layout de uma página? Você mexe apenas na View. Precisa mudar uma regra de negócio? O seu foco será no Model. As chances de quebrar outra parte do sistema diminuem drasticamente.</li>
+<li><strong>Reaproveitamento de Código:</strong> A lógica de negócio no Model pode ser reutilizada por diferentes Controllers e Views, evitando a duplicação de código.</li>
+<li><strong>Trabalho em Equipe Facilitado:</strong> Em um time, um desenvolvedor pode focar no front-end (View), enquanto outro trabalha no back-end (Model e Controller), sem que um interfira diretamente no trabalho do outro.</li>
+</ul>
+<p>Para o seu próximo projeto, mesmo que seja um estudo, experimente organizar suas pastas e arquivos seguindo a estrutura do MVC. Frameworks populares como Laravel (PHP), Ruby on Rails, Django (Python) e Spring (Java) já utilizam essa arquitetura como base, tornando o seu aprendizado ainda mais relevante para o mercado de trabalho.</p>
+<p>Começar com boas práticas como o uso do MVC é um passo fundamental para construir uma base sólida e se tornar um desenvolvedor cada vez mais completo e requisitado.</p>
+]]></content:encoded></item></channel></rss>

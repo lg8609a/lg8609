@@ -7,15 +7,15 @@ url: "https://lg8609a.github.io"
 baseurl: "/lg8609"
 
 # Configuração do tema remoto
-remote_theme: rocha-bruno/marmite
+#remote_theme: rocha-bruno/marmite
 
 plugins:
   - jekyll-remote-theme
 
 # Menu de Navegação
 menu:
-  - ["About", "content/about.html"]
-  - ["Pages", "content/pages.html"]
-  - ["Tags", "content/tags.html"]
+  - ["About", "/about.html"]
+  - ["Pages", "/pages.html"]
+  - ["Tags", "/tags.html"]
   - ["Follow me", "https://www.linkedin.com/in/luizgns/"]
   - ["Github", "https://github.com/lg8609a"]

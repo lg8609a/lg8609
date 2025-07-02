@@ -1,0 +1,63 @@
+{
+  "marmite_version": "0.2.5",
+  "posts": 1,
+  "pages": 2,
+  "generated_at": "2025-07-01 21:52:04.296538900 -03:00",
+  "timestamp": 1751417524,
+  "elapsed_time": 0.0632645,
+  "config": {
+    "name": "Diário de um Dev JR",
+    "tagline": "Publicações semanais sobre assuntos que estudo, curiosidades, dificuldades e dúvidas sobre diferentes stacks e sobre as minhas experiências pessoais que rodeiam um dev júnior",
+    "url": "https://lg8609a.github.io",
+    "footer": "<div>Powered by <a href=\"https://github.com/rochacbruno/marmite\">Marmite</a> | <small><a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">CC-BY_NC-SA</a></small></div>",
+    "language": "en",
+    "pagination": 10,
+    "pages_title": "Pages",
+    "tags_title": "Tags",
+    "tags_content_title": "Posts tagged with '$tag'",
+    "archives_title": "Archive",
+    "archives_content_title": "Posts from '$year'",
+    "streams_title": "Streams",
+    "streams_content_title": "Posts from '$stream'",
+    "default_author": "",
+    "authors_title": "Authors",
+    "enable_search": false,
+    "enable_related_content": true,
+    "search_title": "Search",
+    "content_path": "content",
+    "site_path": "",
+    "templates_path": "templates",
+    "static_path": "static",
+    "media_path": "media",
+    "card_image": "",
+    "banner_image": "",
+    "logo_image": "",
+    "default_date_format": "%b %e, %Y",
+    "menu": [
+      [
+        "About",
+        "/about.html"
+      ],
+      [
+        "Pages",
+        "/pages.html"
+      ],
+      [
+        "Tags",
+        "/tags.html"
+      ],
+      [
+        "Follow me",
+        "https://www.linkedin.com/in/luizgns/"
+      ],
+      [
+        "Github",
+        "https://github.com/lg8609a"
+      ]
+    ],
+    "extra": null,
+    "authors": {},
+    "toc": false,
+    "json_feed": false
+  }
+}

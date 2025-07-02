@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Diário de um Dev JR{% endblock %}</title>
+    <link rel="stylesheet" href="static/marmite.css">
+    <link rel="stylesheet" href="static/custom.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="nav-left">
+            <a href="index.html" class="blog-title"><strong>Diário de um Dev JR</strong></a>
+        </div>
+        <div class="nav-right">
+            <a href="sobre.html">Sobre Mim</a>
+            <a href="pages.html">Páginas</a>
+            <a href="tags.html">Tags</a>
+            <a href="archive.html">Arquivo</a>
+            <a href="https://github.com/lg8609a" target="_blank" rel="noopener">Github</a>
+        </div>
+    </nav>
+    <main>
+        {% block main %}{% endblock %}
+    </main>
+    <footer>
+        <p>Powered by <a href="https://rochacbruno.github.io/marmite/" target="_blank" rel="noopener">Marmite</a> | <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC-BY_NC-SA</a></p>
+    </footer>
+    <script src="static/custom.js"></script>
+</body>
+</html>
