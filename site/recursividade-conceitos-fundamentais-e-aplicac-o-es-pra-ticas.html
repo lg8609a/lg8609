@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursividade: Conceitos Fundamentais e Aplicações Práticas | Diário de um Dev JR</title>
+    <link rel="stylesheet" href="static/marmite.css">
+    <link rel="stylesheet" href="static/custom.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    
+    
+    <style>
+    .main-div {
+        display: flex;
+        gap: 40px;
+        max-width: 1200px;
+        margin: 0 auto 0 auto;
+    }
+    .left {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+    }
+    .right {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+    @media (max-width: 1024px) {
+        .main-div {
+            display: block;
+        }
+        .left, .right {
+            width: 100%;
+        }
+    }
+    </style>
+    <link rel="stylesheet" href="static/custom.css?v=1">
+
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="nav-left">
+            <a href="index.html" class="blog-title"><strong>Diário de um Dev JR</strong></a>
+        </div>
+        <div class="nav-right">
+            <a href="sobre.html">Sobre Mim</a>
+            <a href="pages.html">Páginas</a>
+            <a href="tags.html">Tags</a>
+            <a href="archive.html">Arquivo</a>
+            <a href="https://github.com/lg8609a" target="_blank" rel="noopener">Github</a>
+        </div>
+    </nav>
+    <main>
+        
+<div style="max-width: 1200px; margin: 0 auto;">
+    <div class="main-div">
+        <div class="left">
+            <article class="content-card">
+                <div class="content-html">
+                    <p>A recursividade é um conceito fundamental na ciência da computação e uma técnica de programação poderosa. Embora possa parecer complexa em um primeiro momento, dominar a recursividade é essencial para a resolução de problemas que possuem uma natureza inerentemente repetitiva, especialmente ao trabalhar com estruturas de dados avançadas.</p>
+<p>Este artigo aborda a definição de recursividade, sua estrutura fundamental, um exemplo prático para ilustrar seu funcionamento e os cuidados necessários para sua implementação.</p>
+<h2><a href="#o-conceito-de-recursividade" aria-hidden="true" class="anchor" id="o-conceito-de-recursividade"></a>O Conceito de Recursividade</h2>
+<p>Em programação, recursividade refere-se ao processo no qual uma função chama a si mesma, direta ou indiretamente. A abordagem recursiva resolve um problema complexo dividindo-o em instâncias menores e mais simples de si mesmo, até que se chegue a uma instância que possa ser resolvida trivialmente.</p>
+<p>Essa estratégia é uma forma de &quot;dividir para conquistar&quot;. Em vez de descrever a solução de forma iterativa (através de laços como for ou while), a solução é definida em termos de si mesma.</p>
+<h2><a href="#a-estrutura-de-uma-função-recursiva" aria-hidden="true" class="anchor" id="a-estrutura-de-uma-função-recursiva"></a>A Estrutura de uma Função Recursiva</h2>
+<p>Para que uma função recursiva opere corretamente sem resultar em um ciclo infinito, sua estrutura deve obrigatoriamente conter dois componentes:</p>
+<p><strong>Caso Base (Condição de Parada):</strong> É a condição que determina o fim da recursão. Trata-se da versão mais simples do problema, para a qual a solução é conhecida ou pode ser calculada diretamente, sem a necessidade de mais chamadas recursivas. A ausência de um caso base eficaz leva a um loop infinito.</p>
+<p><strong>Passo Recursivo:</strong> É a parte da função que a invoca novamente, mas com um argumento modificado que a aproxima progressivamente do caso base. A cada passo, o problema é simplificado, garantindo que a condição de parada seja eventualmente alcançada.</p>
+<h2><a href="#exemplo-prático-o-cálculo-de-fatorial" aria-hidden="true" class="anchor" id="exemplo-prático-o-cálculo-de-fatorial"></a>Exemplo Prático: O Cálculo de Fatorial</h2>
+<p>Um dos exemplos mais clássicos para ilustrar a recursividade é o cálculo do fatorial de um número inteiro não negativo. O fatorial de n, denotado por n!, é o produto de todos os inteiros positivos menores ou iguais a n.</p>
+<p>A definição matemática do fatorial pode ser expressa de forma recursiva:</p>
+<ul>
+<li>n! = n × (n−1)! para n &gt; 1</li>
+<li>1! = 1 e 0! = 1 (Casos Base)</li>
+</ul>
+<div style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; background: #f9f9f9; margin: 24px 0;">
+<strong>Exemplo em Python</strong>
+<pre><code class="language-python">def calcular_fatorial(n):
+    # Caso Base: define o fim da recursão para n = 0 ou n = 1.
+    if n == 0 or n == 1:
+        return 1
+    # Passo Recursivo: a função chama a si mesma com o argumento n - 1.
+    else:
+        return n * calcular_fatorial(n - 1)
+
+# Exemplo de uso da função
+numero = 4
+resultado = calcular_fatorial(numero)
+print(f&quot;O fatorial de {numero} é {resultado}&quot;) # Saída: O fatorial de 4 é 24
+</code></pre>
+</div>
+<h3><a href="#análise-da-execução" aria-hidden="true" class="anchor" id="análise-da-execução"></a>Análise da Execução</h3>
+<p>Ao chamar <code>calcular_fatorial(4)</code>, a sequência de operações é a seguinte:</p>
+<ul>
+<li>calcular_fatorial(4) retorna 4 * calcular_fatorial(3).</li>
+<li>calcular_fatorial(3) retorna 3 * calcular_fatorial(2).</li>
+<li>calcular_fatorial(2) retorna 2 * calcular_fatorial(1).</li>
+<li>calcular_fatorial(1) atinge o caso base e retorna 1.</li>
+</ul>
+<p>Neste ponto, as chamadas pendentes começam a ser resolvidas na ordem inversa:</p>
+<ul>
+<li>O retorno de 1 é usado na chamada (3), resultando em 2 * 1 = 2.</li>
+<li>O retorno de 2 é usado na chamada (2), resultando em 3 * 2 = 6.</li>
+<li>O retorno de 6 é usado na chamada (1), resultando em 4 * 6 = 24.</li>
+</ul>
+<p>O valor final, 24, é então retornado.</p>
+<h2><a href="#riscos-e-cuidados-o-stack-overflow" aria-hidden="true" class="anchor" id="riscos-e-cuidados-o-stack-overflow"></a>Riscos e Cuidados: O Stack Overflow</h2>
+<p>Cada chamada de função em um programa é alocada em uma estrutura de dados chamada Pilha de Execução (Call Stack). A pilha armazena o contexto de cada função ativa, incluindo suas variáveis locais e o ponto de retorno.</p>
+<p>Em uma recursão, cada chamada sucessiva adiciona um novo &quot;quadro&quot; (frame) à pilha. Se a recursão for muito profunda — seja por um caso base ausente ou por um número de chamadas excessivamente grande —, a capacidade de memória da pilha pode ser excedida. Este evento resulta em um erro crítico conhecido como Stack Overflow (estouro da pilha de execução), que geralmente encerra o programa abruptamente.</p>
+<p>Portanto, é fundamental garantir que o caso base seja sempre alcançável e que a profundidade da recursão seja adequada para os limites do sistema.</p>
+<h2><a href="#quando-utilizar-a-recursividade" aria-hidden="true" class="anchor" id="quando-utilizar-a-recursividade"></a>Quando Utilizar a Recursividade</h2>
+<p>Apesar do risco de Stack Overflow, a recursividade é a abordagem preferencial para problemas que são definidos recursivamente por natureza. Nesses cenários, a solução recursiva tende a ser mais legível e elegante do que uma solução iterativa complexa.</p>
+<p>Casos de uso comuns incluem:</p>
+<ul>
+<li>Navegação em estruturas de dados de árvore (e.g., árvores binárias de busca, DOM de uma página web).</li>
+<li>Algoritmos de travessia em grafos, como a Busca em Profundidade (DFS).</li>
+<li>Algoritmos de &quot;dividir para conquistar&quot;, como Merge Sort e Quick Sort.</li>
+<li>Processamento de dados com estrutura aninhada, como arquivos JSON.</li>
+</ul>
+<p>Para problemas lineares e simples, como o próprio fatorial, uma solução iterativa com loops costuma ser mais performática e segura.</p>
+<h2><a href="#conclusão" aria-hidden="true" class="anchor" id="conclusão"></a>Conclusão</h2>
+<p>A recursividade é uma ferramenta conceitual e prática de grande valor. Sua correta aplicação depende da compreensão de seus dois componentes principais — o caso base e o passo recursivo. Embora exija cuidado com a gestão da memória e o risco de Stack Overflow, a elegância e a clareza que oferece para resolver problemas complexos a tornam um tópico de estudo indispensável para qualquer desenvolvedor de software.</p>
+<p>Veja também este conteúdo como post no blog: <a href="2025-07-10-recursividade.html">Acesse o post do blog</a></p>
+
+                </div>
+            </article>
+        </div>
+        <div class="right">
+            <article class="author-card">
+    <header>Luiz Gustavo Saraiva</header>
+    <img src="static/foto_autor.jpg" alt="Foto do autor">
+    <p>Desenvolvedor JR</p>
+    <ul>
+        <li><a href="https://github.com/lg8609a" target="_blank" rel="noopener">Github</a></li>
+        <li><a href="https://www.linkedin.com/in/luizgns/" target="_blank" rel="noopener">Linkedin</a></li>
+        <li><a href="mailto:luiz_gns@hotmail.com">Email</a></li>
+    </ul>
+</article>
+
+            <article>
+                <header>Páginas</header>
+                <ul>
+                
+                <li><a href="recursividade-conceitos-fundamentais-e-aplicac-o-es-pra-ticas.html">Recursividade: Conceitos Fundamentais e Aplicações Práticas</a></li>
+                
+                <li><a href="o-que-e-padra-o-mvc-model-view-controller.html">O que é Padrão MVC (Model-View-Controller)?</a></li>
+                
+                <li><a href="sobre.html">Bem-vindo(a) ao Blog "Diário de um Dev JR"! 📝</a></li>
+                
+                
+                </ul>
+            </article>
+            <article>
+                <header>Tags</header>
+                <ul>
+                
+                <li><a href="tag-boas-praticas.html">#boas-praticas</a></li>
+                
+                <li><a href="tag-arquitetura-de-software.html">#arquitetura-de-software</a></li>
+                
+                <li><a href="tag-design-patterns.html">#design-patterns</a></li>
+                
+                <li><a href="tag-mvc.html">#mvc</a></li>
+                
+                <li><a href="tag-estruturas-de-dados.html">#estruturas-de-dados</a></li>
+                
+                <li><a href="tag-recursividade.html">#recursividade</a></li>
+                
+                <li><a href="tag-algoritmos.html">#algoritmos</a></li>
+                
+                </ul>
+            </article>
+            <article>
+                <header>Arquivos</header>
+                <ul>
+                
+                <li><a href="archive-2025.html">2025</a></li>
+                
+                </ul>
+            </article>
+        </div>
+    </div>
+</div>
+
+    </main>
+    <footer>
+        <p>Powered by <a href="https://rochacbruno.github.io/marmite/" target="_blank" rel="noopener">Marmite</a> | <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC-BY_NC-SA</a></p>
+    </footer>
+    <script src="static/custom.js"></script>
+</body>
+</html>
