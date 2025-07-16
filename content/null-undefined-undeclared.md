@@ -125,5 +125,3 @@ Para consolidar as diferenças, a tabela abaixo resume as principais caracterís
 ## Conclusão
 
 Dominar a distinção entre "undefined", "null" e "undeclared" é um passo importante para a proficiência em JavaScript. *Undefined* sinaliza um estado padrão de não inicialização; *Null* representa uma ausência de valor deliberada; e *Undeclared* indica um erro de programação onde um identificador não foi declarado. A aplicação correta desses conceitos resulta em um código mais claro, robusto e com menos probabilidade de erros inesperados.
-
-Veja também este conteúdo como post no blog: [Acesse o post do blog](2025-07-16-Null-Undefined-Undeclared-Em-Javascript.html) 
