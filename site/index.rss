@@ -1,4 +1,119 @@
-<?xml version="1.0" encoding="utf-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Diário de um Dev JR</title><link>https://lg8609a.github.io</link><description>Publicações semanais sobre assuntos que estudo, curiosidades, dificuldades e dúvidas sobre diferentes stacks e sobre as minhas experiências pessoais que rodeiam um dev júnior</description><pubDate>Thu, 10 Jul 2025 00:00:00 GMT</pubDate><lastBuildDate>Thu, 10 Jul 2025 14:35:17 GMT</lastBuildDate><generator>marmite</generator><item><title>Recursividade: Conceitos Fundamentais e Aplicações Práticas</title><link>https://lg8609a.github.io/recursividade-conceitos-fundamentais-e-aplicac-o-es-pra-ticas.html</link><description><![CDATA["Entenda o conceito de recursividade, sua estrutura, exemplos práticos e cuidados essenciais para aplicar essa técnica poderosa na programação."]]></description><category>Algoritmos</category><category>Estruturas de Dados</category><category>Recursividade</category><category>Boas Práticas</category><guid>https://lg8609a.github.io/recursividade-conceitos-fundamentais-e-aplicac-o-es-pra-ticas.html</guid><pubDate>Thu, 10 Jul 2025 00:00:00 GMT</pubDate><source url="https://lg8609a.github.io">index</source><content:encoded><![CDATA[<p>A recursividade é um conceito fundamental na ciência da computação e uma técnica de programação poderosa. Embora possa parecer complexa em um primeiro momento, dominar a recursividade é essencial para a resolução de problemas que possuem uma natureza inerentemente repetitiva, especialmente ao trabalhar com estruturas de dados avançadas.</p>
+<?xml version="1.0" encoding="utf-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Diário de um Dev JR</title><link>https://lg8609a.github.io</link><description>Publicações semanais sobre assuntos que estudo, curiosidades, dificuldades e dúvidas sobre diferentes stacks e sobre as minhas experiências pessoais que rodeiam um dev júnior</description><pubDate>Wed, 16 Jul 2025 00:00:00 GMT</pubDate><lastBuildDate>Wed, 16 Jul 2025 15:58:08 GMT</lastBuildDate><generator>marmite</generator><item><title>Null, Undefined e Undeclared em Javascript</title><link>https://lg8609a.github.io/null-undefined-e-undeclared-em-javascript.html</link><description><![CDATA["Este artigo apresenta uma análise técnica de cada um desses conceitos, com exemplos práticos para clarificar suas definições, origens e implicações no desenvolvimento."]]></description><category>Javascript</category><category>Desenvolvimento Web</category><category>Boas Práticas</category><category>Tipos de Dados</category><guid>https://lg8609a.github.io/null-undefined-e-undeclared-em-javascript.html</guid><pubDate>Wed, 16 Jul 2025 00:00:00 GMT</pubDate><source url="https://lg8609a.github.io">index</source><content:encoded><![CDATA[<h1><a href="#as-diferenças-essenciais-entre-null-undefined-e-undeclared-em-javascript" aria-hidden="true" class="anchor" id="as-diferenças-essenciais-entre-null-undefined-e-undeclared-em-javascript"></a>As Diferenças Essenciais entre Null, Undefined e Undeclared em JavaScript</h1>
+<p>No ecossistema JavaScript, a representação da ausência de valor é um tópico que frequentemente causa confusão entre desenvolvedores, especialmente aqueles em início de carreira. Os termos &quot;null&quot;, &quot;undefined&quot; e o estado &quot;undeclared&quot; descrevem cenários distintos, e compreender suas diferenças é fundamental para a escrita de um código robusto, previsível e de fácil depuração.</p>
+<h2><a href="#undefined-a-ausência-de-valor-padrão" aria-hidden="true" class="anchor" id="undefined-a-ausência-de-valor-padrão"></a>Undefined: A Ausência de Valor Padrão</h2>
+<p>&quot;Undefined&quot; é um dos tipos primitivos de dados em JavaScript. Ele representa a ausência de um valor atribuído. O motor JavaScript (JavaScript engine) designa automaticamente o valor <em>undefined</em> em situações específicas, sem a intervenção do desenvolvedor.</p>
+<p>Os cenários mais comuns onde &quot;undefined&quot; é encontrado são:</p>
+<p><strong>Declaração sem inicialização:</strong> Uma variável declarada com &quot;let&quot;, &quot;const&quot; ou &quot;var&quot; que não teve um valor inicial atribuído.</p>
+<div style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; background: #f9f9f9; margin: 24px 0;">
+<pre><code class="language-javascript">let nome;
+console.log(nome); // Saída: undefined
+</code></pre>
+</div>
+<p><strong>Funções sem retorno explícito:</strong> Uma função que não possui a instrução &quot;return&quot; ou que possui um &quot;return&quot; sem um valor especificado, retorna &quot;undefined&quot; por padrão.</p>
+<div style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; background: #f9f9f9; margin: 24px 0;">
+<pre><code class="language-javascript">function calcular() {
+  // Nenhuma instrução de retorno
+}
+console.log(calcular()); // Saída: undefined
+</code></pre>
+</div>
+<p><strong>Parâmetros de função não fornecidos:</strong> Quando uma função é chamada sem os argumentos esperados.</p>
+<div style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; background: #f9f9f9; margin: 24px 0;">
+<pre><code class="language-javascript">function saudar(nome) {
+  console.log(`Olá, ${nome}`);
+}
+saudar(); // Saída: Olá, undefined
+</code></pre>
+</div>
+<p><strong>Acesso a propriedades de objeto inexistentes:</strong> Ao tentar acessar uma propriedade que não foi definida em um objeto.</p>
+<div style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; background: #f9f9f9; margin: 24px 0;">
+<pre><code class="language-javascript">const usuario = { id: 101 };
+console.log(usuario.nome); // Saída: undefined
+</code></pre>
+</div>
+<p>O operador &quot;typeof&quot; aplicado a uma variável que contém &quot;undefined&quot; retorna a string &quot;undefined&quot;.</p>
+<h2><a href="#null-a-ausência-de-valor-intencional" aria-hidden="true" class="anchor" id="null-a-ausência-de-valor-intencional"></a>Null: A Ausência de Valor Intencional</h2>
+<p>Assim como &quot;undefined&quot;, &quot;null&quot; também é um tipo primitivo que representa a ausência de valor. A diferença crucial reside na sua intencionalidade. O valor <em>null</em> é atribuído explicitamente por um desenvolvedor para indicar que uma variável não possui um valor ou que um objeto não existe.</p>
+<p>Enquanto &quot;undefined&quot; é a ausência de valor por omissão, <em>null</em> é a ausência de valor por design. É comumente utilizado em cenários onde um objeto é esperado, mas não está disponível no momento.</p>
+<div style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; background: #f9f9f9; margin: 24px 0;">
+<pre><code class="language-javascript">let dadosDoUsuario = null; // O valor é intencionalmente nulo
+
+function buscarUsuario(id) {
+  if (id === 1) {
+    return { nome: 'João' };
+  }
+  // Retorna null para indicar que nenhum usuário foi encontrado
+  return null;
+}
+
+dadosDoUsuario = buscarUsuario(2);
+console.log(dadosDoUsuario); // Saída: null
+</code></pre>
+</div>
+<p>Uma peculiaridade histórica do JavaScript é que o operador &quot;typeof&quot; para &quot;null&quot; retorna &quot;object&quot;. Este é um bug reconhecido nas primeiras versões da linguagem, mantido por razões de retrocompatibilidade.</p>
+<h2><a href="#undeclared-a-ausência-de-declaração" aria-hidden="true" class="anchor" id="undeclared-a-ausência-de-declaração"></a>Undeclared: A Ausência de Declaração</h2>
+<p>Diferente de &quot;null&quot; e &quot;undefined&quot;, o estado <em>undeclared</em> não é um valor em JavaScript, mas sim uma condição. Uma variável é considerada <em>undeclared</em> quando há uma tentativa de acessá-la sem que ela tenha sido declarada no escopo atual ou em escopos superiores.</p>
+<p>A tentativa de utilizar um identificador não declarado resulta, na maioria dos casos, em um erro em tempo de execução do tipo &quot;ReferenceError&quot;, que interrompe a execução do script.</p>
+<div style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; background: #f9f9f9; margin: 24px 0;">
+<pre><code class="language-javascript">console.log(variavelInexistente);
+// Erro: Uncaught ReferenceError: variavelInexistente is not defined
+</code></pre>
+</div>
+<p>Este erro é um mecanismo de segurança da linguagem que previne o uso de variáveis que não existem, evitando comportamentos inesperados.</p>
+<h2><a href="#tabela-comparativa" aria-hidden="true" class="anchor" id="tabela-comparativa"></a>Tabela Comparativa</h2>
+<p>Para consolidar as diferenças, a tabela abaixo resume as principais características de cada conceito.</p>
+<table>
+<thead>
+<tr>
+<th>Característica</th>
+<th>undefined</th>
+<th>null</th>
+<th>undeclared</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tipo (<code>typeof</code>)</td>
+<td>&quot;undefined&quot;</td>
+<td>&quot;object&quot; (quirk histórico)</td>
+<td>Causa ReferenceError</td>
+</tr>
+<tr>
+<td>Origem</td>
+<td>Atribuído automaticamente pelo motor JS</td>
+<td>Atribuído intencionalmente pelo desenvolvedor</td>
+<td>Estado de um identificador não declarado</td>
+</tr>
+<tr>
+<td>Representação</td>
+<td>Uma variável que não teve valor atribuído</td>
+<td>Ausência intencional de um valor (especialmente de um objeto)</td>
+<td>Um identificador que não existe no escopo</td>
+</tr>
+<tr>
+<td>Comparação <code>==</code></td>
+<td>null == undefined resulta em true</td>
+<td>null == undefined resulta em true</td>
+<td>N/A (causa erro)</td>
+</tr>
+<tr>
+<td>Comparação <code>===</code></td>
+<td>null === undefined resulta em false</td>
+<td>null === undefined resulta em false</td>
+<td>N/A (causa erro)</td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#implicações-práticas-e-boas-práticas" aria-hidden="true" class="anchor" id="implicações-práticas-e-boas-práticas"></a>Implicações Práticas e Boas Práticas</h2>
+<ul>
+<li><strong>Evite atribuições explícitas de &quot;undefined&quot;:</strong> Deixe que o motor JavaScript gerencie o estado &quot;undefined&quot;. Se for necessário indicar a ausência de um valor, &quot;null&quot; é a opção semanticamente correta.</li>
+<li><strong>Utilize &quot;null&quot; para ausência intencional:</strong> Ao escrever funções que podem retornar um objeto, é uma prática comum retornar &quot;null&quot; para sinalizar que nenhum resultado foi encontrado.</li>
+<li><strong>Prefira &quot;const&quot; e &quot;let&quot;:</strong> O uso de &quot;const&quot; e &quot;let&quot; em vez de &quot;var&quot; ajuda a evitar variáveis não declaradas, pois elas possuem escopo de bloco e geram erros se acessadas antes de sua declaração (Temporal Dead Zone).</li>
+<li><strong>Use a comparação estrita (<code>===</code>):</strong> Para verificar a ausência de valor, utilize a comparação estrita para diferenciar &quot;null&quot; de &quot;undefined&quot;, evitando a coerção de tipo realizada pela comparação solta (<code>==</code>).</li>
+</ul>
+<h2><a href="#conclusão" aria-hidden="true" class="anchor" id="conclusão"></a>Conclusão</h2>
+<p>Dominar a distinção entre &quot;undefined&quot;, &quot;null&quot; e &quot;undeclared&quot; é um passo importante para a proficiência em JavaScript. <em>Undefined</em> sinaliza um estado padrão de não inicialização; <em>Null</em> representa uma ausência de valor deliberada; e <em>Undeclared</em> indica um erro de programação onde um identificador não foi declarado. A aplicação correta desses conceitos resulta em um código mais claro, robusto e com menos probabilidade de erros inesperados.</p>
+]]></content:encoded></item><item><title>Recursividade: Conceitos Fundamentais e Aplicações Práticas</title><link>https://lg8609a.github.io/recursividade-conceitos-fundamentais-e-aplicac-o-es-pra-ticas.html</link><description><![CDATA["Entenda o conceito de recursividade, sua estrutura, exemplos práticos e cuidados essenciais para aplicar essa técnica poderosa na programação."]]></description><category>Algoritmos</category><category>Estruturas de Dados</category><category>Recursividade</category><category>Boas Práticas</category><guid>https://lg8609a.github.io/recursividade-conceitos-fundamentais-e-aplicac-o-es-pra-ticas.html</guid><pubDate>Thu, 10 Jul 2025 00:00:00 GMT</pubDate><source url="https://lg8609a.github.io">index</source><content:encoded><![CDATA[<p>A recursividade é um conceito fundamental na ciência da computação e uma técnica de programação poderosa. Embora possa parecer complexa em um primeiro momento, dominar a recursividade é essencial para a resolução de problemas que possuem uma natureza inerentemente repetitiva, especialmente ao trabalhar com estruturas de dados avançadas.</p>
 <p>Este artigo aborda a definição de recursividade, sua estrutura fundamental, um exemplo prático para ilustrar seu funcionamento e os cuidados necessários para sua implementação.</p>
 <h2><a href="#o-conceito-de-recursividade" aria-hidden="true" class="anchor" id="o-conceito-de-recursividade"></a>O Conceito de Recursividade</h2>
 <p>Em programação, recursividade refere-se ao processo no qual uma função chama a si mesma, direta ou indiretamente. A abordagem recursiva resolve um problema complexo dividindo-o em instâncias menores e mais simples de si mesmo, até que se chegue a uma instância que possa ser resolvida trivialmente.</p>
@@ -94,7 +209,7 @@ print(f&quot;O fatorial de {numero} é {resultado}&quot;) # Saída: O fatorial d
 <h2><a href="#como-tudo-se-conecta-o-fluxo-em-uma-aplicação-web" aria-hidden="true" class="anchor" id="como-tudo-se-conecta-o-fluxo-em-uma-aplicação-web"></a>Como Tudo se Conecta: O Fluxo em uma Aplicação Web</h2>
 <p>Para ficar ainda mais claro, vamos a um exemplo prático e simplificado de como o MVC funciona em uma aplicação web:</p>
 <ol>
-<li><strong>Ação do Usuário:</strong> O usuário acessa a URL <a href="http://www.sualoja.com/produtos">www.sualoja.com/produtos</a> no navegador.</li>
+<li><strong>Ação do Usuário:</strong> O usuário acessa a URL <a href="http://www.exemplositeloja.com/produtos">www.exemplositeloja.com/produtos</a> no navegador.</li>
 <li><strong>O Roteador e o Controller:</strong> A aplicação identifica, através de um sistema de rotas, que essa requisição deve ser gerenciada pelo ProdutoController.</li>
 <li><strong>O Controller Trabalha:</strong> O ProdutoController é acionado e entende que precisa listar todos os produtos. Ele então solicita essa lista ao ProdutoModel.</li>
 <li><strong>O Model Busca os Dados:</strong> O ProdutoModel se conecta ao banco de dados, busca todos os produtos cadastrados e retorna essa lista para o ProdutoController.</li>
