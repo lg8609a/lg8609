@@ -1,4 +1,92 @@
-<?xml version="1.0" encoding="utf-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Diário de um Dev JR</title><link>https://lg8609a.github.io</link><description>Publicações semanais sobre assuntos que estudo, curiosidades, dificuldades e dúvidas sobre diferentes stacks e sobre as minhas experiências pessoais que rodeiam um dev júnior</description><pubDate>Tue, 01 Jul 2025 00:00:00 GMT</pubDate><lastBuildDate>Wed, 16 Jul 2025 15:58:08 GMT</lastBuildDate><generator>marmite</generator><item><title>O que é Padrão MVC (Model-View-Controller)?</title><link>https://lg8609a.github.io/o-que-e-padra-o-mvc-model-view-controller.html</link><description><![CDATA["Se você está iniciando sua jornada no mundo da programação, provavelmente já se deparou com a sigla \"MVC\". Neste post, vamos entender o que é o MVC e como ele pode ser seu grande aliado na criação de projetos mais limpos e fáceis de manter."]]></description><category>Arquitetura de Software</category><category>Design Patterns</category><category>MVC</category><category>Boas Práticas</category><guid>https://lg8609a.github.io/o-que-e-padra-o-mvc-model-view-controller.html</guid><pubDate>Tue, 01 Jul 2025 00:00:00 GMT</pubDate><source url="https://lg8609a.github.io">tag-arquitetura-de-software</source><content:encoded><![CDATA[<h1><a href="#o-que-é-padrão-mvc-model-view-controller" aria-hidden="true" class="anchor" id="o-que-é-padrão-mvc-model-view-controller"></a>O Que é Padrão MVC (Model-View-Controller)?</h1>
+<?xml version="1.0" encoding="utf-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Diário de um Dev JR</title><link>https://lg8609a.github.io</link><description>Publicações semanais sobre assuntos que estudo, curiosidades, dificuldades e dúvidas sobre diferentes stacks e sobre as minhas experiências pessoais que rodeiam um dev júnior</description><pubDate>Fri, 01 Aug 2025 00:00:00 GMT</pubDate><lastBuildDate>Fri, 01 Aug 2025 12:42:05 GMT</lastBuildDate><generator>marmite</generator><item><title>SQL vs. NoSQL: Compreendendo as Diferenças e Quando Utilizar</title><link>https://lg8609a.github.io/sql-vs-nosql-compreendendo-as-diferenc-as-e-quando-utilizar.html</link><description><![CDATA["A escolha de um banco de dados é uma das decisões arquiteturais mais críticas no desenvolvimento de uma aplicação. Este post apresenta uma análise comparativa entre os paradigmas SQL e NoSQL."]]></description><category>Desenvolvimento Web</category><category>Arquitetura de Software</category><category>Banco de Dados</category><category>SQL</category><category>NoSQL</category><category>Boas Práticas</category><guid>https://lg8609a.github.io/sql-vs-nosql-compreendendo-as-diferenc-as-e-quando-utilizar.html</guid><pubDate>Fri, 01 Aug 2025 00:00:00 GMT</pubDate><source url="https://lg8609a.github.io">tag-arquitetura-de-software</source><content:encoded><![CDATA[<h1><a href="#sql-vs-nosql-compreendendo-as-diferenças-e-casos-de-uso" aria-hidden="true" class="anchor" id="sql-vs-nosql-compreendendo-as-diferenças-e-casos-de-uso"></a>SQL vs. NoSQL: Compreendendo as Diferenças e Casos de Uso</h1>
+<p>A escolha de um banco de dados é uma das decisões arquiteturais mais críticas no desenvolvimento de uma aplicação. Ela impacta diretamente a performance, a escalabilidade, a consistência dos dados e a complexidade do desenvolvimento. As duas principais categorias de sistemas de gerenciamento de bancos de dados (SGBDs) são SQL (relacionais) e NoSQL (não relacionais).</p>
+<p>Não se trata de uma competição para determinar qual é a &quot;melhor&quot; tecnologia, mas sim de identificar a ferramenta mais adequada para um problema específico. Esse é o primeiro passo para projetar sistemas eficientes e robustos.</p>
+<p>Este post apresenta uma análise comparativa entre os paradigmas SQL e NoSQL, detalhando suas características, principais diferenças e cenários de aplicação ideais.</p>
+<h2><a href="#bancos-de-dados-sql-relacionais-estrutura-e-consistência" aria-hidden="true" class="anchor" id="bancos-de-dados-sql-relacionais-estrutura-e-consistência"></a>Bancos de Dados SQL (Relacionais): Estrutura e Consistência</h2>
+<p>Os bancos de dados relacionais, que utilizam a Structured Query Language (SQL) como padrão de consulta, organizam os dados em tabelas (ou relações) compostas por linhas e colunas. Este modelo é fundamentado na teoria matemática das relações e tem sido o padrão da indústria por décadas.</p>
+<h3><a href="#principais-características" aria-hidden="true" class="anchor" id="principais-características"></a>Principais Características:</h3>
+<p><strong>Esquema Rígido (Schema-on-Write):</strong> A estrutura dos dados, incluindo tabelas, colunas e tipos de dados, deve ser definida antes da inserção de qualquer registro. Essa rigidez garante a uniformidade e a previsibilidade dos dados.</p>
+<p><strong>Propriedades ACID:</strong> A maioria dos SGBDs relacionais adere às propriedades ACID (Atomicidade, Consistência, Isolamento e Durabilidade). Este conjunto de garantias assegura a integridade das transações, tornando-os ideais para sistemas onde a confiabilidade transacional é crítica (e.g., sistemas financeiros).</p>
+<p><strong>Normalização de Dados:</strong> Os dados são geralmente normalizados para reduzir a redundância e melhorar a integridade, distribuindo-os em múltiplas tabelas interligadas por chaves estrangeiras.</p>
+<p><strong>Escalabilidade Vertical:</strong> Tradicionalmente, a escalabilidade é alcançada através do scaling up, ou seja, aumentando os recursos de hardware (CPU, RAM, armazenamento) de um único servidor.</p>
+<p><strong>Exemplos de SGBDs:</strong> PostgreSQL, MySQL, MariaDB, Microsoft SQL Server, Oracle Database.</p>
+<h2><a href="#bancos-de-dados-nosql-não-relacionais-flexibilidade-e-escalabilidade" aria-hidden="true" class="anchor" id="bancos-de-dados-nosql-não-relacionais-flexibilidade-e-escalabilidade"></a>Bancos de Dados NoSQL (Não Relacionais): Flexibilidade e Escalabilidade</h2>
+<p>O termo NoSQL (&quot;Not Only SQL&quot;) abrange uma vasta categoria de bancos de dados que não seguem o modelo relacional tradicional. Eles foram projetados para atender às demandas de aplicações web modernas, como grandes volumes de dados (Big Data), baixa latência e alta escalabilidade.</p>
+<h3><a href="#principais-características-1" aria-hidden="true" class="anchor" id="principais-características-1"></a>Principais Características:</h3>
+<p><strong>Esquema Flexível (Schema-on-Read):</strong> Permitem a inserção de dados sem um esquema predefinido. A estrutura pode variar de um registro para outro dentro da mesma coleção, oferecendo grande flexibilidade para dados semiestruturados ou não estruturados.</p>
+<p><strong>Diversidade de Modelos de Dados:</strong> Existem vários tipos de bancos NoSQL, cada um otimizado para um tipo de problema:</p>
+<ul>
+<li><strong>Documentos:</strong> Armazenam dados em formatos como JSON ou BSON (e.g., MongoDB, CouchDB).</li>
+<li><strong>Chave-Valor:</strong> O modelo mais simples, associa uma chave única a um valor (e.g., Redis, Amazon DynamoDB).</li>
+<li><strong>Colunares (Wide-Column):</strong> Otimizados para consultas rápidas em grandes conjuntos de dados, armazenando dados em colunas em vez de linhas (e.g., Apache Cassandra, Google Bigtable).</li>
+<li><strong>Grafos:</strong> Projetados para armazenar e navegar por relações complexas entre entidades (e.g., Neo4j, Amazon Neptune).</li>
+</ul>
+<p><strong>Teorema CAP e Consistência Eventual (BASE):</strong> Em sistemas distribuídos, o Teorema CAP afirma que é impossível garantir simultaneamente Consistência, Disponibilidade (Availability) e Tolerância a Partições. Muitos bancos NoSQL priorizam a disponibilidade e a tolerância a partições, adotando um modelo de consistência eventual (modelo BASE: Basically Available, Soft state, Eventual consistency).</p>
+<p><strong>Escalabilidade Horizontal:</strong> A escalabilidade é tipicamente alcançada através do scaling out, distribuindo os dados e a carga de trabalho por múltiplos servidores (clusterização ou sharding).</p>
+<h2><a href="#tabela-comparativa-sql-vs-nosql" aria-hidden="true" class="anchor" id="tabela-comparativa-sql-vs-nosql"></a>Tabela Comparativa: SQL vs. NoSQL</h2>
+<div style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; background: #f9f9f9; margin: 24px 0; overflow-x: auto;">
+<table style="width: 100%; border-collapse: collapse; margin: 0;">
+<thead>
+<tr style="background: #e9ecef;">
+<th style="border: 1px solid #dee2e6; padding: 12px; text-align: left; font-weight: bold;">Característica</th>
+<th style="border: 1px solid #dee2e6; padding: 12px; text-align: left; font-weight: bold;">Bancos SQL (Relacionais)</th>
+<th style="border: 1px solid #dee2e6; padding: 12px; text-align: left; font-weight: bold;">Bancos NoSQL (Não Relacionais)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #dee2e6; padding: 12px;">Modelo de Dados</td>
+<td style="border: 1px solid #dee2e6; padding: 12px;">Tabelas com linhas e colunas (relacional)</td>
+<td style="border: 1px solid #dee2e6; padding: 12px;">Documentos, chave-valor, colunares, grafos</td>
+</tr>
+<tr style="background: #f8f9fa;">
+<td style="border: 1px solid #dee2e6; padding: 12px;">Esquema</td>
+<td style="border: 1px solid #dee2e6; padding: 12px;">Rígido e predefinido</td>
+<td style="border: 1px solid #dee2e6; padding: 12px;">Dinâmico e flexível</td>
+</tr>
+<tr>
+<td style="border: 1px solid #dee2e6; padding: 12px;">Linguagem</td>
+<td style="border: 1px solid #dee2e6; padding: 12px;">SQL (Structured Query Language)</td>
+<td style="border: 1px solid #dee2e6; padding: 12px;">Varia conforme o SGBD (APIs específicas)</td>
+</tr>
+<tr style="background: #f8f9fa;">
+<td style="border: 1px solid #dee2e6; padding: 12px;">Escalabilidade</td>
+<td style="border: 1px solid #dee2e6; padding: 12px;">Vertical (scaling up)</td>
+<td style="border: 1px solid #dee2e6; padding: 12px;">Horizontal (scaling out)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #dee2e6; padding: 12px;">Consistência</td>
+<td style="border: 1px solid #dee2e6; padding: 12px;">Forte (propriedades ACID)</td>
+<td style="border: 1px solid #dee2e6; padding: 12px;">Geralmente eventual (modelo BASE), mas configurável</td>
+</tr>
+<tr style="background: #f8f9fa;">
+<td style="border: 1px solid #dee2e6; padding: 12px;">Exemplos de Uso</td>
+<td style="border: 1px solid #dee2e6; padding: 12px;">Sistemas transacionais, ERPs, e-commerce, finanças</td>
+<td style="border: 1px solid #dee2e6; padding: 12px;">Big Data, IoT, redes sociais, gerenciamento de conteúdo, caching</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2><a href="#cenários-de-uso-para-bancos-de-dados-sql" aria-hidden="true" class="anchor" id="cenários-de-uso-para-bancos-de-dados-sql"></a>Cenários de Uso para Bancos de Dados SQL</h2>
+<p>Bancos de dados relacionais são a escolha ideal quando:</p>
+<ul>
+<li>A integridade dos dados e a consistência transacional (ACID) são requisitos não negociáveis.</li>
+<li>Os dados são bem estruturados e seus requisitos de esquema são estáveis.</li>
+<li>A aplicação necessita de consultas complexas que envolvem múltiplas tabelas (JOINs).</li>
+</ul>
+<p><strong>Exemplos:</strong> sistemas bancários, plataformas de e-commerce, sistemas de gestão empresarial (ERP), aplicações de contabilidade.</p>
+<h2><a href="#cenários-de-uso-para-bancos-de-dados-nosql" aria-hidden="true" class="anchor" id="cenários-de-uso-para-bancos-de-dados-nosql"></a>Cenários de Uso para Bancos de Dados NoSQL</h2>
+<p>Bancos de dados não relacionais são mais adequados quando:</p>
+<ul>
+<li>A aplicação precisa lidar com grandes volumes de dados com alta velocidade de escrita e leitura.</li>
+<li>Os requisitos de dados são fluidos ou envolvem dados não estruturados ou semiestruturados.</li>
+<li>A escalabilidade horizontal e a alta disponibilidade são mais críticas do que a consistência forte imediata.</li>
+</ul>
+<p><strong>Exemplos:</strong> redes sociais (grafos), catálogos de produtos com atributos variados (documentos), sistemas de caching de sessão (chave-valor), aplicações de Internet das Coisas (IoT) e análise de telemetria (colunares).</p>
+<h2><a href="#conclusão" aria-hidden="true" class="anchor" id="conclusão"></a>Conclusão</h2>
+<p>A decisão entre SQL e NoSQL não é uma escolha excludente. Ambas as tecnologias possuem méritos e são ferramentas poderosas quando aplicadas aos problemas corretos. A escolha deve ser orientada por uma análise criteriosa dos requisitos da aplicação, considerando o modelo de dados, as necessidades de escalabilidade, a performance esperada e as garantias de consistência.</p>
+<p>Adicionalmente, a abordagem de persistência poliglota, onde múltiplos tipos de bancos de dados coexistem em uma mesma arquitetura para servir a diferentes funcionalidades, tem se tornado cada vez mais comum e eficaz.</p>
+]]></content:encoded></item><item><title>O que é Padrão MVC (Model-View-Controller)?</title><link>https://lg8609a.github.io/o-que-e-padra-o-mvc-model-view-controller.html</link><description><![CDATA["Se você está iniciando sua jornada no mundo da programação, provavelmente já se deparou com a sigla \"MVC\". Neste post, vamos entender o que é o MVC e como ele pode ser seu grande aliado na criação de projetos mais limpos e fáceis de manter."]]></description><category>Arquitetura de Software</category><category>Design Patterns</category><category>MVC</category><category>Boas Práticas</category><guid>https://lg8609a.github.io/o-que-e-padra-o-mvc-model-view-controller.html</guid><pubDate>Tue, 01 Jul 2025 00:00:00 GMT</pubDate><source url="https://lg8609a.github.io">tag-arquitetura-de-software</source><content:encoded><![CDATA[<h1><a href="#o-que-é-padrão-mvc-model-view-controller" aria-hidden="true" class="anchor" id="o-que-é-padrão-mvc-model-view-controller"></a>O Que é Padrão MVC (Model-View-Controller)?</h1>
 <p>Se você está iniciando sua jornada no mundo da programação, provavelmente já se deparou com a sigla MVC. Longe de ser um bicho de sete cabeças, o MVC é um padrão de arquitetura que organiza o código de forma lógica e eficiente, sendo um dos pilares no desenvolvimento de inúmeras aplicações. Neste post, vamos entender o que é o MVC e como ele pode ser seu grande aliado na criação de projetos mais limpos e fáceis de manter.</p>
 <p>Imagine que você está montando um quebra-cabeça. Você não joga todas as peças na mesa e tenta encaixá-las de qualquer maneira. O mais provável é que você separe as peças pelas bordas, pelas cores e, aos poucos, vá montando as seções. O MVC, ou Model-View-Controller, funciona de maneira semelhante para o seu código. Ele propõe a divisão da sua aplicação em três camadas principais, cada uma com uma responsabilidade bem definida.</p>
 <p>Essa separação, conhecida como &quot;separação de conceitos&quot;, é a chave para um código mais organizado, reutilizável e muito mais fácil de dar manutenção, especialmente em projetos que tendem a crescer.</p>
