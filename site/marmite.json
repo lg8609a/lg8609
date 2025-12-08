@@ -1,10 +1,10 @@
 {
   "marmite_version": "0.2.5",
-  "posts": 4,
-  "pages": 5,
-  "generated_at": "2025-08-01 09:42:05.967791900 -03:00",
-  "timestamp": 1754052125,
-  "elapsed_time": 0.0868786,
+  "posts": 6,
+  "pages": 7,
+  "generated_at": "2025-12-08 10:54:34.818056900 -03:00",
+  "timestamp": 1765202074,
+  "elapsed_time": 0.1951267,
   "config": {
     "name": "Diário de um Dev JR",
     "tagline": "Publicações semanais sobre assuntos que estudo, curiosidades, dificuldades e dúvidas sobre diferentes stacks e sobre as minhas experiências pessoais que rodeiam um dev júnior",

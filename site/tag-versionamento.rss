@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Diário de um Dev JR</title><link>https://lg8609a.github.io</link><description>Publicações semanais sobre assuntos que estudo, curiosidades, dificuldades e dúvidas sobre diferentes stacks e sobre as minhas experiências pessoais que rodeiam um dev júnior</description><pubDate>Tue, 09 Sep 2025 00:00:00 GMT</pubDate><lastBuildDate>Mon, 08 Dec 2025 13:54:34 GMT</lastBuildDate><generator>marmite</generator><item><title>Git: 5 Comandos Essenciais para Desenvolvedores Júnior</title><link>https://lg8609a.github.io/git-5-comandos-essenciais-para-desenvolvedores-ju-nior.html</link><description><![CDATA["Entenda como status, branch, checkout, merge e log estruturam um workflow seguro e colaborativo no Git, indo além do básico."]]></description><category>Git</category><category>Versionamento</category><category>Desenvolvimento Web</category><category>Boas Práticas</category><guid>https://lg8609a.github.io/git-5-comandos-essenciais-para-desenvolvedores-ju-nior.html</guid><pubDate>Tue, 09 Sep 2025 00:00:00 GMT</pubDate><source url="https://lg8609a.github.io">tag-versionamento</source><content:encoded><![CDATA[<p>O Git é uma ferramenta fundamental no ecossistema de desenvolvimento de software moderno. Dominar seu uso é um requisito essencial para qualquer desenvolvedor que deseje trabalhar de forma colaborativa e eficiente. Embora os comandos <code>commit</code>, <code>push</code> e <code>pull</code> formem a base das interações diárias, a verdadeira proficiência em Git se manifesta no domínio do workflow.</p>
+<p>Para desenvolvedores em início de carreira, compreender como gerenciar o trabalho de forma isolada e segura é o que diferencia o uso básico do uso profissional da ferramenta.</p>
+<p>Neste post, iremos detalhar cinco comandos essenciais do Git que vão além do básico. O domínio desses comandos permite a participação ativa em um fluxo de trabalho estruturado, seguro e colaborativo.</p>
+<h2><a href="#1-git-status-o-ponto-de-partida" aria-hidden="true" class="anchor" id="1-git-status-o-ponto-de-partida"></a>1. git status: O Ponto de Partida</h2>
+<p>Antes de executar qualquer ação, é crucial compreender o estado atual do repositório. O comando <code>git status</code> é a principal ferramenta de diagnóstico no Git. Ele fornece informações essenciais sobre o ambiente de trabalho.</p>
+<p><strong>Função Principal:</strong>
+<code>git status</code> responde a três perguntas fundamentais:</p>
+<ol>
+<li>Em qual branch o repositório se encontra?</li>
+<li>Quais arquivos foram modificados e estão prontos para serem incluídos no próximo commit (área de stage)?</li>
+<li>Quais arquivos foram modificados mas não estão na área de stage, ou quais novos arquivos ainda não foram rastreados pelo Git?</li>
+</ol>
+<p>Utilizar este comando frequentemente previne erros comuns, como realizar um commit na branch errada ou esquecer de adicionar arquivos importantes a um commit.</p>
+<p><strong>Exemplo de uso:</strong></p>
+<pre><code class="language-bash">git status
+</code></pre>
+<h2><a href="#2-git-branch-isolando-o-trabalho" aria-hidden="true" class="anchor" id="2-git-branch-isolando-o-trabalho"></a>2. git branch: Isolando o Trabalho</h2>
+<p>O conceito de branches (ramificações) é central para o Git. Uma branch é uma linha de desenvolvimento independente. Elas permitem que equipes trabalhem em novas funcionalidades, correções de bugs ou experimentos de forma isolada, sem afetar a linha principal de desenvolvimento (geralmente a <code>main</code> ou <code>develop</code>).</p>
+<p><strong>Função Principal:</strong>
+O comando <code>git branch</code> é utilizado para listar, criar ou excluir branches.</p>
+<p>Para listar todas as branches locais:</p>
+<pre><code class="language-bash">git branch
+</code></pre>
+<p>Para criar uma nova branch:</p>
+<pre><code class="language-bash">git branch nome-da-nova-branch
+</code></pre>
+<p>Para excluir uma branch (após a sua integração):</p>
+<pre><code class="language-bash">git branch -d nome-da-branch
+</code></pre>
+<p>Adotar uma estratégia de branches é a base para o trabalho em equipe e para a integração contínua (CI).</p>
+<h2><a href="#3-git-checkout-navegando-entre-contextos" aria-hidden="true" class="anchor" id="3-git-checkout-navegando-entre-contextos"></a>3. git checkout: Navegando entre Contextos</h2>
+<p>Após a criação de uma branch, é necessário alternar para ela a fim de iniciar o trabalho. O comando <code>git checkout</code> permite a navegação entre as diferentes branches de um repositório. Ao executar este comando, o Git altera os arquivos do diretório de trabalho para que correspondam à versão exata da branch de destino.</p>
+<p><strong>Função Principal:</strong>
+Mudar o ponteiro <code>HEAD</code> para uma branch específica, atualizando o diretório de trabalho.</p>
+<p><strong>Exemplo de uso:</strong></p>
+<pre><code class="language-bash"># Alterna para uma branch já existente
+git checkout nome-da-branch
+</code></pre>
+<p>Uma prática extremamente comum e eficiente é criar e já alternar para a nova branch em um único passo, utilizando a flag <code>-b</code>.</p>
+<pre><code class="language-bash"># Cria a branch &quot;nova-funcionalidade&quot; e já alterna para ela
+git checkout -b nova-funcionalidade
+</code></pre>
+<h2><a href="#4-git-merge-integrando-alterações" aria-hidden="true" class="anchor" id="4-git-merge-integrando-alterações"></a>4. git merge: Integrando Alterações</h2>
+<p>Quando o desenvolvimento em uma branch de funcionalidade é concluído, o próximo passo é integrar esse trabalho de volta à branch principal (e.g., <code>develop</code> ou <code>main</code>). O comando <code>git merge</code> é utilizado para realizar essa fusão.</p>
+<p><strong>Função Principal:</strong>
+O <code>git merge</code> incorpora as alterações de uma branch em outra. O processo padrão envolve:</p>
+<ol>
+<li>Navegar para a branch que receberá as alterações.</li>
+<li>Executar o comando de merge, especificando a branch de origem.</li>
+</ol>
+<p><strong>Exemplo de uso:</strong></p>
+<pre><code class="language-bash"># 1. Mudar para a branch principal
+git checkout main
+
+# 2. Executar o merge da branch de funcionalidade na main
+git merge nova-funcionalidade
+</code></pre>
+<p>É importante notar que, durante um merge, podem ocorrer conflitos se duas branches modificaram a mesma parte de um mesmo arquivo. A resolução manual de conflitos é uma habilidade crítica que deve ser desenvolvida.</p>
+<h2><a href="#5-git-log-analisando-o-histórico" aria-hidden="true" class="anchor" id="5-git-log-analisando-o-histórico"></a>5. git log: Analisando o Histórico</h2>
+<p>Compreender o histórico de um projeto é vital para depuração e para entender a evolução do código. O comando <code>git log</code> exibe o histórico de commits da branch atual, em ordem cronológica inversa.</p>
+<p><strong>Função Principal:</strong>
+Visualizar a sequência de commits, incluindo o hash de identificação, o autor, a data e a mensagem de cada commit.</p>
+<p><strong>Exemplo de uso:</strong>
+O uso básico já é informativo:</p>
+<pre><code class="language-bash">git log
+</code></pre>
+<p>Para uma visualização mais concisa e estruturada, especialmente em projetos com muitas branches, flags adicionais são extremamente úteis:</p>
+<pre><code class="language-bash">git log --oneline --graph --decorate
+</code></pre>
+<ul>
+<li><code>--oneline</code>: Resume cada commit em uma única linha.</li>
+<li><code>--graph</code>: Exibe uma representação gráfica da estrutura de branches e merges.</li>
+<li><code>--decorate</code>: Mostra os nomes de branches e tags ao lado dos commits correspondentes.</li>
+</ul>
+<h2><a href="#conclusão" aria-hidden="true" class="anchor" id="conclusão"></a>Conclusão</h2>
+<p>Dominar o fluxo <code>status → branch → checkout → merge → log</code> eleva o uso do Git de um simples sistema de backup para uma poderosa ferramenta de fluxo de trabalho e colaboração. Para um desenvolvedor júnior, a prática consistente desses cinco comandos é um passo fundamental para se integrar de forma eficaz em qualquer equipe de desenvolvimento profissional, garantindo um trabalho mais organizado, seguro e rastreável.</p>
+]]></content:encoded></item></channel></rss>

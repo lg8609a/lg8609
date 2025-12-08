@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git: 5 Comandos Essenciais para Desenvolvedores Júnior | Diário de um Dev JR</title>
+    <link rel="stylesheet" href="static/marmite.css">
+    <link rel="stylesheet" href="static/custom.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    
+    
+    <style>
+    .main-div {
+        display: flex;
+        gap: 40px;
+        max-width: 1200px;
+        margin: 0 auto 0 auto;
+    }
+    .left {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+    }
+    .right {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+    @media (max-width: 1024px) {
+        .main-div {
+            display: block;
+        }
+        .left, .right {
+            width: 100%;
+        }
+    }
+    </style>
+    <link rel="stylesheet" href="static/custom.css?v=1">
+
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="nav-left">
+            <a href="index.html" class="blog-title"><strong>Diário de um Dev JR</strong></a>
+        </div>
+        <div class="nav-right">
+            <a href="sobre.html">Sobre Mim</a>
+            <a href="pages.html">Páginas</a>
+            <a href="tags.html">Tags</a>
+            <a href="archive.html">Arquivo</a>
+            <a href="https://github.com/lg8609a" target="_blank" rel="noopener">Github</a>
+        </div>
+    </nav>
+    <main>
+        
+<div style="max-width: 1200px; margin: 0 auto;">
+    <div class="main-div">
+        <div class="left">
+            <article class="content-card">
+                <div class="content-html">
+                    <p>O Git é uma ferramenta fundamental no ecossistema de desenvolvimento de software moderno. Dominar seu uso é um requisito essencial para qualquer desenvolvedor que deseje trabalhar de forma colaborativa e eficiente. Embora os comandos <code>commit</code>, <code>push</code> e <code>pull</code> formem a base das interações diárias, a verdadeira proficiência em Git se manifesta no domínio do workflow.</p>
+<p>Para desenvolvedores em início de carreira, compreender como gerenciar o trabalho de forma isolada e segura é o que diferencia o uso básico do uso profissional da ferramenta.</p>
+<p>Neste post, iremos detalhar cinco comandos essenciais do Git que vão além do básico. O domínio desses comandos permite a participação ativa em um fluxo de trabalho estruturado, seguro e colaborativo.</p>
+<h2><a href="#1-git-status-o-ponto-de-partida" aria-hidden="true" class="anchor" id="1-git-status-o-ponto-de-partida"></a>1. git status: O Ponto de Partida</h2>
+<p>Antes de executar qualquer ação, é crucial compreender o estado atual do repositório. O comando <code>git status</code> é a principal ferramenta de diagnóstico no Git. Ele fornece informações essenciais sobre o ambiente de trabalho.</p>
+<p><strong>Função Principal:</strong>
+<code>git status</code> responde a três perguntas fundamentais:</p>
+<ol>
+<li>Em qual branch o repositório se encontra?</li>
+<li>Quais arquivos foram modificados e estão prontos para serem incluídos no próximo commit (área de stage)?</li>
+<li>Quais arquivos foram modificados mas não estão na área de stage, ou quais novos arquivos ainda não foram rastreados pelo Git?</li>
+</ol>
+<p>Utilizar este comando frequentemente previne erros comuns, como realizar um commit na branch errada ou esquecer de adicionar arquivos importantes a um commit.</p>
+<p><strong>Exemplo de uso:</strong></p>
+<pre><code class="language-bash">git status
+</code></pre>
+<h2><a href="#2-git-branch-isolando-o-trabalho" aria-hidden="true" class="anchor" id="2-git-branch-isolando-o-trabalho"></a>2. git branch: Isolando o Trabalho</h2>
+<p>O conceito de branches (ramificações) é central para o Git. Uma branch é uma linha de desenvolvimento independente. Elas permitem que equipes trabalhem em novas funcionalidades, correções de bugs ou experimentos de forma isolada, sem afetar a linha principal de desenvolvimento (geralmente a <code>main</code> ou <code>develop</code>).</p>
+<p><strong>Função Principal:</strong>
+O comando <code>git branch</code> é utilizado para listar, criar ou excluir branches.</p>
+<p>Para listar todas as branches locais:</p>
+<pre><code class="language-bash">git branch
+</code></pre>
+<p>Para criar uma nova branch:</p>
+<pre><code class="language-bash">git branch nome-da-nova-branch
+</code></pre>
+<p>Para excluir uma branch (após a sua integração):</p>
+<pre><code class="language-bash">git branch -d nome-da-branch
+</code></pre>
+<p>Adotar uma estratégia de branches é a base para o trabalho em equipe e para a integração contínua (CI).</p>
+<h2><a href="#3-git-checkout-navegando-entre-contextos" aria-hidden="true" class="anchor" id="3-git-checkout-navegando-entre-contextos"></a>3. git checkout: Navegando entre Contextos</h2>
+<p>Após a criação de uma branch, é necessário alternar para ela a fim de iniciar o trabalho. O comando <code>git checkout</code> permite a navegação entre as diferentes branches de um repositório. Ao executar este comando, o Git altera os arquivos do diretório de trabalho para que correspondam à versão exata da branch de destino.</p>
+<p><strong>Função Principal:</strong>
+Mudar o ponteiro <code>HEAD</code> para uma branch específica, atualizando o diretório de trabalho.</p>
+<p><strong>Exemplo de uso:</strong></p>
+<pre><code class="language-bash"># Alterna para uma branch já existente
+git checkout nome-da-branch
+</code></pre>
+<p>Uma prática extremamente comum e eficiente é criar e já alternar para a nova branch em um único passo, utilizando a flag <code>-b</code>.</p>
+<pre><code class="language-bash"># Cria a branch &quot;nova-funcionalidade&quot; e já alterna para ela
+git checkout -b nova-funcionalidade
+</code></pre>
+<h2><a href="#4-git-merge-integrando-alterações" aria-hidden="true" class="anchor" id="4-git-merge-integrando-alterações"></a>4. git merge: Integrando Alterações</h2>
+<p>Quando o desenvolvimento em uma branch de funcionalidade é concluído, o próximo passo é integrar esse trabalho de volta à branch principal (e.g., <code>develop</code> ou <code>main</code>). O comando <code>git merge</code> é utilizado para realizar essa fusão.</p>
+<p><strong>Função Principal:</strong>
+O <code>git merge</code> incorpora as alterações de uma branch em outra. O processo padrão envolve:</p>
+<ol>
+<li>Navegar para a branch que receberá as alterações.</li>
+<li>Executar o comando de merge, especificando a branch de origem.</li>
+</ol>
+<p><strong>Exemplo de uso:</strong></p>
+<pre><code class="language-bash"># 1. Mudar para a branch principal
+git checkout main
+
+# 2. Executar o merge da branch de funcionalidade na main
+git merge nova-funcionalidade
+</code></pre>
+<p>É importante notar que, durante um merge, podem ocorrer conflitos se duas branches modificaram a mesma parte de um mesmo arquivo. A resolução manual de conflitos é uma habilidade crítica que deve ser desenvolvida.</p>
+<h2><a href="#5-git-log-analisando-o-histórico" aria-hidden="true" class="anchor" id="5-git-log-analisando-o-histórico"></a>5. git log: Analisando o Histórico</h2>
+<p>Compreender o histórico de um projeto é vital para depuração e para entender a evolução do código. O comando <code>git log</code> exibe o histórico de commits da branch atual, em ordem cronológica inversa.</p>
+<p><strong>Função Principal:</strong>
+Visualizar a sequência de commits, incluindo o hash de identificação, o autor, a data e a mensagem de cada commit.</p>
+<p><strong>Exemplo de uso:</strong>
+O uso básico já é informativo:</p>
+<pre><code class="language-bash">git log
+</code></pre>
+<p>Para uma visualização mais concisa e estruturada, especialmente em projetos com muitas branches, flags adicionais são extremamente úteis:</p>
+<pre><code class="language-bash">git log --oneline --graph --decorate
+</code></pre>
+<ul>
+<li><code>--oneline</code>: Resume cada commit em uma única linha.</li>
+<li><code>--graph</code>: Exibe uma representação gráfica da estrutura de branches e merges.</li>
+<li><code>--decorate</code>: Mostra os nomes de branches e tags ao lado dos commits correspondentes.</li>
+</ul>
+<h2><a href="#conclusão" aria-hidden="true" class="anchor" id="conclusão"></a>Conclusão</h2>
+<p>Dominar o fluxo <code>status → branch → checkout → merge → log</code> eleva o uso do Git de um simples sistema de backup para uma poderosa ferramenta de fluxo de trabalho e colaboração. Para um desenvolvedor júnior, a prática consistente desses cinco comandos é um passo fundamental para se integrar de forma eficaz em qualquer equipe de desenvolvimento profissional, garantindo um trabalho mais organizado, seguro e rastreável.</p>
+<p>Veja também este conteúdo como post no blog: <a href="2025-09-09-comandos-git.html">Acesse o post do blog</a></p>
+
+                </div>
+            </article>
+        </div>
+        <div class="right">
+            <article class="author-card">
+    <header>Luiz Gustavo Saraiva</header>
+    <img src="static/foto_autor.jpg" alt="Foto do autor">
+    <p>Desenvolvedor JR</p>
+    <ul>
+        <li><a href="https://github.com/lg8609a" target="_blank" rel="noopener">Github</a></li>
+        <li><a href="https://www.linkedin.com/in/luizgns/" target="_blank" rel="noopener">Linkedin</a></li>
+        <li><a href="mailto:luiz_gns@hotmail.com">Email</a></li>
+    </ul>
+</article>
+
+            <article>
+                <header>Páginas</header>
+                <ul>
+                
+                <li><a href="sql-vs-nosql-compreendendo-as-diferenc-as-e-quando-utilizar.html">SQL vs. NoSQL: Compreendendo as Diferenças e Quando Utilizar</a></li>
+                
+                <li><a href="recursividade-conceitos-fundamentais-e-aplicac-o-es-pra-ticas.html">Recursividade: Conceitos Fundamentais e Aplicações Práticas</a></li>
+                
+                <li><a href="o-que-e-padra-o-mvc-model-view-controller.html">O que é Padrão MVC (Model-View-Controller)?</a></li>
+                
+                <li><a href="null-undefined-e-undeclared-em-javascript.html">Null, Undefined e Undeclared em Javascript</a></li>
+                
+                <li><a href="git-5-comandos-essenciais-para-desenvolvedores-ju-nior.html">Git: 5 Comandos Essenciais para Desenvolvedores Júnior</a></li>
+                
+                <li><a href="estruturas-de-dados-no-dia-a-dia-arrays-e-listas.html">Estruturas de Dados no Dia a Dia: Arrays e Listas</a></li>
+                
+                <li><a href="sobre.html">Bem-vindo(a) ao Blog "Diário de um Dev JR"! 📝</a></li>
+                
+                
+                </ul>
+            </article>
+            <article>
+                <header>Tags</header>
+                <ul>
+                
+                <li><a href="tag-boas-praticas.html">#boas-praticas</a></li>
+                
+                <li><a href="tag-arquitetura-de-software.html">#arquitetura-de-software</a></li>
+                
+                <li><a href="tag-estruturas-de-dados.html">#estruturas-de-dados</a></li>
+                
+                <li><a href="tag-algoritmos.html">#algoritmos</a></li>
+                
+                <li><a href="tag-desenvolvimento-web.html">#desenvolvimento-web</a></li>
+                
+                <li><a href="tag-versionamento.html">#versionamento</a></li>
+                
+                <li><a href="tag-javascript.html">#javascript</a></li>
+                
+                <li><a href="tag-design-patterns.html">#design-patterns</a></li>
+                
+                <li><a href="tag-mvc.html">#mvc</a></li>
+                
+                <li><a href="tag-tipos-de-dados.html">#tipos-de-dados</a></li>
+                
+                <li><a href="tag-nosql.html">#nosql</a></li>
+                
+                <li><a href="tag-recursividade.html">#recursividade</a></li>
+                
+                <li><a href="tag-git.html">#git</a></li>
+                
+                <li><a href="tag-sql.html">#sql</a></li>
+                
+                <li><a href="tag-banco-de-dados.html">#banco-de-dados</a></li>
+                
+                </ul>
+            </article>
+            <article>
+                <header>Arquivos</header>
+                <ul>
+                
+                <li><a href="archive-2025.html">2025</a></li>
+                
+                </ul>
+            </article>
+        </div>
+    </div>
+</div>
+
+    </main>
+    <footer>
+        <p>Powered by <a href="https://rochacbruno.github.io/marmite/" target="_blank" rel="noopener">Marmite</a> | <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC-BY_NC-SA</a></p>
+    </footer>
+    <script src="static/custom.js"></script>
+</body>
+</html>

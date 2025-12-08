@@ -1,4 +1,72 @@
-<?xml version="1.0" encoding="utf-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Diário de um Dev JR</title><link>https://lg8609a.github.io</link><description>Publicações semanais sobre assuntos que estudo, curiosidades, dificuldades e dúvidas sobre diferentes stacks e sobre as minhas experiências pessoais que rodeiam um dev júnior</description><pubDate>Thu, 10 Jul 2025 00:00:00 GMT</pubDate><lastBuildDate>Fri, 01 Aug 2025 12:42:05 GMT</lastBuildDate><generator>marmite</generator><item><title>Recursividade: Conceitos Fundamentais e Aplicações Práticas</title><link>https://lg8609a.github.io/recursividade-conceitos-fundamentais-e-aplicac-o-es-pra-ticas.html</link><description><![CDATA["Entenda o conceito de recursividade, sua estrutura, exemplos práticos e cuidados essenciais para aplicar essa técnica poderosa na programação."]]></description><category>Algoritmos</category><category>Estruturas de Dados</category><category>Recursividade</category><category>Boas Práticas</category><guid>https://lg8609a.github.io/recursividade-conceitos-fundamentais-e-aplicac-o-es-pra-ticas.html</guid><pubDate>Thu, 10 Jul 2025 00:00:00 GMT</pubDate><source url="https://lg8609a.github.io">tag-algoritmos</source><content:encoded><![CDATA[<p>A recursividade é um conceito fundamental na ciência da computação e uma técnica de programação poderosa. Embora possa parecer complexa em um primeiro momento, dominar a recursividade é essencial para a resolução de problemas que possuem uma natureza inerentemente repetitiva, especialmente ao trabalhar com estruturas de dados avançadas.</p>
+<?xml version="1.0" encoding="utf-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Diário de um Dev JR</title><link>https://lg8609a.github.io</link><description>Publicações semanais sobre assuntos que estudo, curiosidades, dificuldades e dúvidas sobre diferentes stacks e sobre as minhas experiências pessoais que rodeiam um dev júnior</description><pubDate>Mon, 08 Dec 2025 00:00:00 GMT</pubDate><lastBuildDate>Mon, 08 Dec 2025 13:54:34 GMT</lastBuildDate><generator>marmite</generator><item><title>Estruturas de Dados no Dia a Dia: Arrays e Listas</title><link>https://lg8609a.github.io/estruturas-de-dados-no-dia-a-dia-arrays-e-listas.html</link><description><![CDATA["Como Arrays e Listas encadeadas resolvem problemas práticos e quando escolher cada uma para obter desempenho e flexibilidade no seu código."]]></description><category>Arquitetura de Software</category><category>Estruturas de Dados</category><category>Algoritmos</category><guid>https://lg8609a.github.io/estruturas-de-dados-no-dia-a-dia-arrays-e-listas.html</guid><pubDate>Mon, 08 Dec 2025 00:00:00 GMT</pubDate><source url="https://lg8609a.github.io">tag-algoritmos</source><content:encoded><![CDATA[<h1><a href="#estruturas-de-dados-no-dia-a-dia-a-importância-de-arrays-e-listas" aria-hidden="true" class="anchor" id="estruturas-de-dados-no-dia-a-dia-a-importância-de-arrays-e-listas"></a>Estruturas de Dados no Dia a Dia: A Importância de Arrays e Listas</h1>
+<p>No desenvolvimento de software, escolher a estrutura de dados correta é tão importante quanto escrever o código em si. Antes de estudar estruturas complexas, é essencial dominar as duas formas mais fundamentais de organizar informações: os Arrays (Vetores) e as Listas (Listas Encadeadas).</p>
+<p>Essas estruturas não são apenas teoria de faculdade; elas são a base de quase tudo o que usamos, desde o gerenciamento de memória do computador até a forma como uma imagem aparece na tela. Neste post, vamos explorar como funcionam e como resolvem problemas práticos do cotidiano de um programador.</p>
+<h2><a href="#1-arrays-estrutura-fixa-e-acesso-rápido" aria-hidden="true" class="anchor" id="1-arrays-estrutura-fixa-e-acesso-rápido"></a>1. Arrays: Estrutura Fixa e Acesso Rápido</h2>
+<p>Um Array armazena itens de forma sequencial na memória. Como o computador sabe exatamente onde começa e termina cada item, consegue encontrar qualquer informação instantaneamente pelo índice.</p>
+<p><strong>Função Principal:</strong> ideal quando você precisa de velocidade de leitura (acesso) e o número de elementos não muda com frequência.</p>
+<ul>
+<li>Acesso direto por índice: leitura muito rápida.</li>
+<li>Tamanho definido: ótimo para coleções previsíveis.</li>
+</ul>
+<p><strong>Exemplo prático: imagens digitais</strong></p>
+<p>Uma imagem na tela é um grande Array de pixels. Para aplicar um filtro preto e branco, o computador lê cada pixel e altera seu valor de cor. Como estão organizados em um Array, o processador percorre tudo em alta velocidade.</p>
+<p>Exemplo (Python):</p>
+<pre><code class="language-python"># Exemplo conceitual: Acessando pixels
+pixels = [255, 128, 0, 64]  # Linha simplificada de uma imagem
+
+# Acessar o terceiro pixel é instantâneo
+print(pixels[2])
+</code></pre>
+<h2><a href="#2-listas-encadeadas-flexibilidade-total" aria-hidden="true" class="anchor" id="2-listas-encadeadas-flexibilidade-total"></a>2. Listas Encadeadas: Flexibilidade Total</h2>
+<p>Nas Listas Encadeadas, cada elemento é um nó com duas partes: o valor é um ponteiro que indica onde está o próximo nó. Como os nós não precisam estar lado a lado na memória, inserir ou remover no meio é simples.</p>
+<p><strong>Função Principal:</strong> brilham quando você não sabe quantos dados terá ou precisa adicionar/remover itens com frequência.</p>
+<ul>
+<li>Inserções/remoções baratas no início ou meio.</li>
+<li>Crescem e encolhem sem realocação em bloco.</li>
+</ul>
+<p><strong>Exemplo prático: playlists de música</strong></p>
+<p>Em uma playlist, você adiciona músicas no meio, remove outras ou muda a ordem. Se fosse um Array, remover a primeira música exigiria deslocar todas as outras para cima. Com uma Lista Encadeada, basta apontar o início para o segundo nó.</p>
+<p>Representação visual:</p>
+<pre><code class="language-plaintext"># Representação visual de uma Lista Encadeada
+[Música A] -&gt; aponta para -&gt; [Música B] -&gt; aponta para -&gt; [Música C]
+</code></pre>
+<h2><a href="#3-comparativo-quando-usar-cada-uma" aria-hidden="true" class="anchor" id="3-comparativo-quando-usar-cada-uma"></a>3. Comparativo: Quando usar cada uma?</h2>
+<p>A decisão entre Array e Lista depende do problema. Normalmente, é uma troca entre espaço e velocidade.</p>
+<p><strong>Resumo da escolha</strong></p>
+<ul>
+<li>Use Arrays quando sabe o tamanho dos dados ou precisa de acesso aleatório muito rápido.</li>
+<li>Use Listas quando o volume de dados muda bastante ou quando inserções no início/meio são frequentes.</li>
+</ul>
+<p><strong>Tabela rápida (referência)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Operação</th>
+<th>Array</th>
+<th>Lista Encadeada</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Acessar um item específico</td>
+<td>Muito rápido</td>
+<td>Mais lento (percorre nós)</td>
+</tr>
+<tr>
+<td>Inserir no início/meio</td>
+<td>Lento (desloca)</td>
+<td>Muito rápido</td>
+</tr>
+<tr>
+<td>Tamanho</td>
+<td>Fixo (geralmente)</td>
+<td>Dinâmico</td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#conclusão" aria-hidden="true" class="anchor" id="conclusão"></a>Conclusão</h2>
+<p>Entender a diferença entre Arrays e Listas é o primeiro passo para escrever códigos mais eficientes. Enquanto o Array oferece velocidade de acesso, a Lista entrega flexibilidade para dados dinâmicos. Para um desenvolvedor júnior, saber qual usar em cada cenário demonstra maturidade técnica e cuidado com a performance da aplicação.</p>
+]]></content:encoded></item><item><title>Recursividade: Conceitos Fundamentais e Aplicações Práticas</title><link>https://lg8609a.github.io/recursividade-conceitos-fundamentais-e-aplicac-o-es-pra-ticas.html</link><description><![CDATA["Entenda o conceito de recursividade, sua estrutura, exemplos práticos e cuidados essenciais para aplicar essa técnica poderosa na programação."]]></description><category>Algoritmos</category><category>Estruturas de Dados</category><category>Recursividade</category><category>Boas Práticas</category><guid>https://lg8609a.github.io/recursividade-conceitos-fundamentais-e-aplicac-o-es-pra-ticas.html</guid><pubDate>Thu, 10 Jul 2025 00:00:00 GMT</pubDate><source url="https://lg8609a.github.io">tag-algoritmos</source><content:encoded><![CDATA[<p>A recursividade é um conceito fundamental na ciência da computação e uma técnica de programação poderosa. Embora possa parecer complexa em um primeiro momento, dominar a recursividade é essencial para a resolução de problemas que possuem uma natureza inerentemente repetitiva, especialmente ao trabalhar com estruturas de dados avançadas.</p>
 <p>Este artigo aborda a definição de recursividade, sua estrutura fundamental, um exemplo prático para ilustrar seu funcionamento e os cuidados necessários para sua implementação.</p>
 <h2><a href="#o-conceito-de-recursividade" aria-hidden="true" class="anchor" id="o-conceito-de-recursividade"></a>O Conceito de Recursividade</h2>
 <p>Em programação, recursividade refere-se ao processo no qual uma função chama a si mesma, direta ou indiretamente. A abordagem recursiva resolve um problema complexo dividindo-o em instâncias menores e mais simples de si mesmo, até que se chegue a uma instância que possa ser resolvida trivialmente.</p>
