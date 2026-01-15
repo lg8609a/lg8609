@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Diário de um Dev JR</title><link>https://lg8609a.github.io</link><description>Publicações semanais sobre assuntos que estudo, curiosidades, dificuldades e dúvidas sobre diferentes stacks e sobre as minhas experiências pessoais que rodeiam um dev júnior</description><pubDate>Thu, 15 Jan 2026 00:00:00 GMT</pubDate><lastBuildDate>Thu, 15 Jan 2026 11:43:03 GMT</lastBuildDate><generator>marmite</generator><item><title>Java Moderno: 3 Recursos Essenciais que Todo Desenvolvedor Júnior Deve Dominar</title><link>https://lg8609a.github.io/java-moderno-3-recursos-essenciais-que-todo-desenvolvedor-ju-nior-deve-dominar.html</link><description><![CDATA["O lançamento do Java 8 representou um divisor de águas na história da linguagem. Foi o momento em que o Java abraçou paradigmas da programação funcional, trazendo ferramentas que tornaram o código mais conciso, legível e seguro."]]></description><category>Java</category><category>Programação Funcional</category><category>Lambda</category><category>Stream API</category><category>Optional</category><category>Desenvolvimento Java</category><category>Boas Práticas</category><guid>https://lg8609a.github.io/java-moderno-3-recursos-essenciais-que-todo-desenvolvedor-ju-nior-deve-dominar.html</guid><pubDate>Thu, 15 Jan 2026 00:00:00 GMT</pubDate><source url="https://lg8609a.github.io">tag-desenvolvimento-java</source><content:encoded><![CDATA[<p>O lançamento do Java 8 representou um divisor de águas na história da linguagem. Foi o momento em que o Java, tradicionalmente verboso e estritamente orientado a objetos, abraçou paradigmas da programação funcional. Essa atualização trouxe ferramentas que tornaram o código mais conciso, legível e seguro.</p>
+<p>Para um desenvolvedor júnior, dominar esses conceitos não é mais um &quot;diferencial&quot;, mas um pré-requisito. Hoje, é difícil encontrar uma base de código profissional (seja em Spring Boot, Jakarta EE ou Android) que não faça uso extensivo dessas funcionalidades.</p>
+<p>Neste artigo, exploramos três pilares do Java moderno: Expressões Lambda, Stream API e a Optional API.</p>
+<h2><a href="#1-expressões-lambda-concisão-e-código-funcional" aria-hidden="true" class="anchor" id="1-expressões-lambda-concisão-e-código-funcional"></a>1. Expressões Lambda: Concisão e Código Funcional</h2>
+<p>Antes do Java 8, passar comportamento para um método (como uma ação de clique em um botão ou uma tarefa para uma thread) exigia a criação de classes anônimas verbosas. As Expressões Lambda resolveram esse problema, permitindo tratar funcionalidades como argumentos de métodos de forma limpa e direta.</p>
+<p>Basicamente, uma Lambda é uma função anônima que não precisa pertencer a uma classe. Ela implementa uma Interface Funcional (uma interface com apenas um método abstrato) de maneira inline.</p>
+<h3><a href="#comparação-prática" aria-hidden="true" class="anchor" id="comparação-prática"></a>Comparação Prática</h3>
+<p>Imagine que você precisa ordenar uma lista de Strings por tamanho.</p>
+<div style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; background: #f9f9f9; margin: 24px 0;">
+<strong>Antes do Java 8 (Classe Anônima)</strong>
+<pre><code class="language-java">Collections.sort(nomes, new Comparator&lt;String&gt;() {
+    @Override
+    public int compare(String s1, String s2) {
+        return Integer.compare(s1.length(), s2.length());
+    }
+});
+</code></pre>
+</div>
+<div style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; background: #f9f9f9; margin: 24px 0;">
+<strong>Com Java 8 (Lambda)</strong>
+<pre><code class="language-java">Collections.sort(nomes, (s1, s2) -&gt; Integer.compare(s1.length(), s2.length()));
+</code></pre>
+</div>
+<p>A sintaxe <code>(parâmetros) -&gt; { corpo }</code> elimina o boilerplate (código repetitivo) e deixa a intenção do código muito mais clara: &quot;dados estes parâmetros, execute esta lógica&quot;.</p>
+<h2><a href="#2-stream-api-manipulação-declarativa-de-dados" aria-hidden="true" class="anchor" id="2-stream-api-manipulação-declarativa-de-dados"></a>2. Stream API: Manipulação Declarativa de Dados</h2>
+<p>A Stream API mudou a forma como lidamos com coleções (Listas, Sets, Maps). Antes dela, qualquer operação de filtragem ou transformação de dados exigia laços de repetição (for ou while) e variáveis temporárias, o que tornava o código imperativo e difícil de ler à medida que a complexidade aumentava.</p>
+<p>Com Streams, adotamos um estilo declarativo. Você diz ao código o que você quer fazer, e não como fazer passo a passo.</p>
+<p>Uma Stream permite encadear operações como filtrar (filter), transformar (map) e reduzir (reduce) de forma fluida.</p>
+<h3><a href="#exemplo-prático" aria-hidden="true" class="anchor" id="exemplo-prático"></a>Exemplo Prático</h3>
+<p>Dada uma lista de números, queremos filtrar apenas os pares, multiplicá-los por 2 e coletar o resultado em uma nova lista.</p>
+<div style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; background: #f9f9f9; margin: 24px 0;">
+<strong>Manipulação de dados com Stream API</strong>
+<pre><code class="language-java">List&lt;Integer&gt; numeros = Arrays.asList(1, 2, 3, 4, 5, 6);
+
+List&lt;Integer&gt; resultado = numeros.stream()
+    .filter(n -&gt; n % 2 == 0)       // 1. Filtra os pares
+    .map(n -&gt; n * 2)               // 2. Transforma (multiplica por 2)
+    .collect(Collectors.toList()); // 3. Coleta o resultado
+
+// Resultado: [4, 8, 12]
+</code></pre>
+</div>
+<p>Além da legibilidade, Streams facilitam o processamento paralelo. Ao trocar <code>.stream()</code> por <code>.parallelStream()</code>, o Java pode dividir o processamento entre os núcleos da CPU automaticamente.</p>
+<h2><a href="#3-optional-api-segurança-contra-nullpointerexception" aria-hidden="true" class="anchor" id="3-optional-api-segurança-contra-nullpointerexception"></a>3. Optional API: Segurança contra NullPointerException</h2>
+<p>O NullPointerException é, historicamente, a exceção mais comum e frustrante em Java. Ele ocorre quando tentamos acessar métodos ou propriedades de um objeto que é null.</p>
+<p>A classe <code>Optional&lt;T&gt;</code> foi introduzida para representar explicitamente a presença ou ausência de um valor, eliminando a necessidade de verificações constantes de <code>if (objeto != null)</code>. Ela funciona como um contêiner: ou tem algo dentro, ou está vazio.</p>
+<p>Isso força o desenvolvedor a pensar no caso &quot;vazio&quot; durante a escrita do código, tornando a aplicação mais robusta.</p>
+<h3><a href="#exemplo-prático-1" aria-hidden="true" class="anchor" id="exemplo-prático-1"></a>Exemplo Prático</h3>
+<p>Imagine um método que busca um usuário no banco de dados. Se o usuário não existir, retornar null é perigoso.</p>
+<div style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; background: #f9f9f9; margin: 24px 0;">
+<strong>Uso seguro com Optional</strong>
+<pre><code class="language-java">// O método retorna um Optional, sinalizando que o valor pode não existir
+public Optional&lt;Usuario&gt; buscarUsuario(int id) {
+    // lógica de busca...
+    return Optional.ofNullable(usuarioEncontrado);
+}
+
+// Uso seguro
+Optional&lt;Usuario&gt; usuarioOpt = buscarUsuario(10);
+
+// Se existir, imprime o nome. Se não, imprime uma mensagem padrão.
+String nome = usuarioOpt.map(u -&gt; u.getNome())
+                        .orElse(&quot;Usuário Desconhecido&quot;);
+</code></pre>
+</div>
+<h2><a href="#conclusão" aria-hidden="true" class="anchor" id="conclusão"></a>Conclusão</h2>
+<p>A introdução de Lambdas, Streams e Optional transformou o Java em uma linguagem mais moderna e expressiva. Para o desenvolvedor júnior, o domínio desses recursos é essencial não apenas para escrever menos linhas de código, mas para criar softwares mais fáceis de manter e menos propensos a erros em tempo de execução.</p>
+]]></content:encoded></item></channel></rss>

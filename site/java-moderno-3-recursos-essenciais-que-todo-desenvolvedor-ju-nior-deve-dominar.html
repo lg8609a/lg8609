@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Moderno: 3 Recursos Essenciais que Todo Desenvolvedor Júnior Deve Dominar | Diário de um Dev JR</title>
+    <link rel="stylesheet" href="static/marmite.css">
+    <link rel="stylesheet" href="static/custom.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    
+    
+    <style>
+    .main-div {
+        display: flex;
+        gap: 40px;
+        max-width: 1200px;
+        margin: 0 auto 0 auto;
+    }
+    .left {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+    }
+    .right {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+    @media (max-width: 1024px) {
+        .main-div {
+            display: block;
+        }
+        .left, .right {
+            width: 100%;
+        }
+    }
+    </style>
+    <link rel="stylesheet" href="static/custom.css?v=1">
+
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="nav-left">
+            <a href="index.html" class="blog-title"><strong>Diário de um Dev JR</strong></a>
+        </div>
+        <div class="nav-right">
+            <a href="sobre.html">Sobre Mim</a>
+            <a href="pages.html">Páginas</a>
+            <a href="tags.html">Tags</a>
+            <a href="archive.html">Arquivo</a>
+            <a href="https://github.com/lg8609a" target="_blank" rel="noopener">Github</a>
+        </div>
+    </nav>
+    <main>
+        
+<div style="max-width: 1200px; margin: 0 auto;">
+    <div class="main-div">
+        <div class="left">
+            <article class="content-card">
+                <div class="content-html">
+                    <p>O lançamento do Java 8 representou um divisor de águas na história da linguagem. Foi o momento em que o Java, tradicionalmente verboso e estritamente orientado a objetos, abraçou paradigmas da programação funcional. Essa atualização trouxe ferramentas que tornaram o código mais conciso, legível e seguro.</p>
+<p>Para um desenvolvedor júnior, dominar esses conceitos não é mais um &quot;diferencial&quot;, mas um pré-requisito. Hoje, é difícil encontrar uma base de código profissional (seja em Spring Boot, Jakarta EE ou Android) que não faça uso extensivo dessas funcionalidades.</p>
+<p>Neste artigo, exploramos três pilares do Java moderno: Expressões Lambda, Stream API e a Optional API.</p>
+<h2><a href="#1-expressões-lambda-concisão-e-código-funcional" aria-hidden="true" class="anchor" id="1-expressões-lambda-concisão-e-código-funcional"></a>1. Expressões Lambda: Concisão e Código Funcional</h2>
+<p>Antes do Java 8, passar comportamento para um método (como uma ação de clique em um botão ou uma tarefa para uma thread) exigia a criação de classes anônimas verbosas. As Expressões Lambda resolveram esse problema, permitindo tratar funcionalidades como argumentos de métodos de forma limpa e direta.</p>
+<p>Basicamente, uma Lambda é uma função anônima que não precisa pertencer a uma classe. Ela implementa uma Interface Funcional (uma interface com apenas um método abstrato) de maneira inline.</p>
+<h3><a href="#comparação-prática" aria-hidden="true" class="anchor" id="comparação-prática"></a>Comparação Prática</h3>
+<p>Imagine que você precisa ordenar uma lista de Strings por tamanho.</p>
+<div style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; background: #f9f9f9; margin: 24px 0;">
+<strong>Antes do Java 8 (Classe Anônima)</strong>
+<pre><code class="language-java">Collections.sort(nomes, new Comparator&lt;String&gt;() {
+    @Override
+    public int compare(String s1, String s2) {
+        return Integer.compare(s1.length(), s2.length());
+    }
+});
+</code></pre>
+</div>
+<div style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; background: #f9f9f9; margin: 24px 0;">
+<strong>Com Java 8 (Lambda)</strong>
+<pre><code class="language-java">Collections.sort(nomes, (s1, s2) -&gt; Integer.compare(s1.length(), s2.length()));
+</code></pre>
+</div>
+<p>A sintaxe <code>(parâmetros) -&gt; { corpo }</code> elimina o boilerplate (código repetitivo) e deixa a intenção do código muito mais clara: &quot;dados estes parâmetros, execute esta lógica&quot;.</p>
+<h2><a href="#2-stream-api-manipulação-declarativa-de-dados" aria-hidden="true" class="anchor" id="2-stream-api-manipulação-declarativa-de-dados"></a>2. Stream API: Manipulação Declarativa de Dados</h2>
+<p>A Stream API mudou a forma como lidamos com coleções (Listas, Sets, Maps). Antes dela, qualquer operação de filtragem ou transformação de dados exigia laços de repetição (for ou while) e variáveis temporárias, o que tornava o código imperativo e difícil de ler à medida que a complexidade aumentava.</p>
+<p>Com Streams, adotamos um estilo declarativo. Você diz ao código o que você quer fazer, e não como fazer passo a passo.</p>
+<p>Uma Stream permite encadear operações como filtrar (filter), transformar (map) e reduzir (reduce) de forma fluida.</p>
+<h3><a href="#exemplo-prático" aria-hidden="true" class="anchor" id="exemplo-prático"></a>Exemplo Prático</h3>
+<p>Dada uma lista de números, queremos filtrar apenas os pares, multiplicá-los por 2 e coletar o resultado em uma nova lista.</p>
+<div style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; background: #f9f9f9; margin: 24px 0;">
+<strong>Manipulação de dados com Stream API</strong>
+<pre><code class="language-java">List&lt;Integer&gt; numeros = Arrays.asList(1, 2, 3, 4, 5, 6);
+
+List&lt;Integer&gt; resultado = numeros.stream()
+    .filter(n -&gt; n % 2 == 0)       // 1. Filtra os pares
+    .map(n -&gt; n * 2)               // 2. Transforma (multiplica por 2)
+    .collect(Collectors.toList()); // 3. Coleta o resultado
+
+// Resultado: [4, 8, 12]
+</code></pre>
+</div>
+<p>Além da legibilidade, Streams facilitam o processamento paralelo. Ao trocar <code>.stream()</code> por <code>.parallelStream()</code>, o Java pode dividir o processamento entre os núcleos da CPU automaticamente.</p>
+<h2><a href="#3-optional-api-segurança-contra-nullpointerexception" aria-hidden="true" class="anchor" id="3-optional-api-segurança-contra-nullpointerexception"></a>3. Optional API: Segurança contra NullPointerException</h2>
+<p>O NullPointerException é, historicamente, a exceção mais comum e frustrante em Java. Ele ocorre quando tentamos acessar métodos ou propriedades de um objeto que é null.</p>
+<p>A classe <code>Optional&lt;T&gt;</code> foi introduzida para representar explicitamente a presença ou ausência de um valor, eliminando a necessidade de verificações constantes de <code>if (objeto != null)</code>. Ela funciona como um contêiner: ou tem algo dentro, ou está vazio.</p>
+<p>Isso força o desenvolvedor a pensar no caso &quot;vazio&quot; durante a escrita do código, tornando a aplicação mais robusta.</p>
+<h3><a href="#exemplo-prático-1" aria-hidden="true" class="anchor" id="exemplo-prático-1"></a>Exemplo Prático</h3>
+<p>Imagine um método que busca um usuário no banco de dados. Se o usuário não existir, retornar null é perigoso.</p>
+<div style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; background: #f9f9f9; margin: 24px 0;">
+<strong>Uso seguro com Optional</strong>
+<pre><code class="language-java">// O método retorna um Optional, sinalizando que o valor pode não existir
+public Optional&lt;Usuario&gt; buscarUsuario(int id) {
+    // lógica de busca...
+    return Optional.ofNullable(usuarioEncontrado);
+}
+
+// Uso seguro
+Optional&lt;Usuario&gt; usuarioOpt = buscarUsuario(10);
+
+// Se existir, imprime o nome. Se não, imprime uma mensagem padrão.
+String nome = usuarioOpt.map(u -&gt; u.getNome())
+                        .orElse(&quot;Usuário Desconhecido&quot;);
+</code></pre>
+</div>
+<h2><a href="#conclusão" aria-hidden="true" class="anchor" id="conclusão"></a>Conclusão</h2>
+<p>A introdução de Lambdas, Streams e Optional transformou o Java em uma linguagem mais moderna e expressiva. Para o desenvolvedor júnior, o domínio desses recursos é essencial não apenas para escrever menos linhas de código, mas para criar softwares mais fáceis de manter e menos propensos a erros em tempo de execução.</p>
+
+                </div>
+            </article>
+        </div>
+        <div class="right">
+            <article class="author-card">
+    <header>Luiz Gustavo Saraiva</header>
+    <img src="static/foto_autor.jpg" alt="Foto do autor">
+    <p>Desenvolvedor JR</p>
+    <ul>
+        <li><a href="https://github.com/lg8609a" target="_blank" rel="noopener">Github</a></li>
+        <li><a href="https://www.linkedin.com/in/luizgns/" target="_blank" rel="noopener">Linkedin</a></li>
+        <li><a href="mailto:luiz_gns@hotmail.com">Email</a></li>
+    </ul>
+</article>
+
+            <article>
+                <header>Páginas</header>
+                <ul>
+                
+                <li><a href="sql-vs-nosql-compreendendo-as-diferenc-as-e-quando-utilizar.html">SQL vs. NoSQL: Compreendendo as Diferenças e Quando Utilizar</a></li>
+                
+                <li><a href="recursividade-conceitos-fundamentais-e-aplicac-o-es-pra-ticas.html">Recursividade: Conceitos Fundamentais e Aplicações Práticas</a></li>
+                
+                <li><a href="por-que-o-asp-net-core-e-ta-o-popular.html">Por Que o ASP.NET Core é Tão Popular?</a></li>
+                
+                <li><a href="o-que-e-padra-o-mvc-model-view-controller.html">O que é Padrão MVC (Model-View-Controller)?</a></li>
+                
+                <li><a href="null-undefined-e-undeclared-em-javascript.html">Null, Undefined e Undeclared em Javascript</a></li>
+                
+                <li><a href="java-moderno-3-recursos-essenciais-que-todo-desenvolvedor-ju-nior-deve-dominar.html">Java Moderno: 3 Recursos Essenciais que Todo Desenvolvedor Júnior Deve Dominar</a></li>
+                
+                <li><a href="git-5-comandos-essenciais-para-desenvolvedores-ju-nior.html">Git: 5 Comandos Essenciais para Desenvolvedores Júnior</a></li>
+                
+                <li><a href="estruturas-de-dados-no-dia-a-dia-arrays-e-listas.html">Estruturas de Dados no Dia a Dia: Arrays e Listas</a></li>
+                
+                <li><a href="sobre.html">Bem-vindo(a) ao Blog "Diário de um Dev JR"! 📝</a></li>
+                
+                
+                </ul>
+            </article>
+            <article>
+                <header>Tags</header>
+                <ul>
+                
+                <li><a href="tag-boas-praticas.html">#boas-praticas</a></li>
+                
+                <li><a href="tag-arquitetura-de-software.html">#arquitetura-de-software</a></li>
+                
+                <li><a href="tag-desenvolvimento-web.html">#desenvolvimento-web</a></li>
+                
+                <li><a href="tag-algoritmos.html">#algoritmos</a></li>
+                
+                <li><a href="tag-estruturas-de-dados.html">#estruturas-de-dados</a></li>
+                
+                <li><a href="tag-optional.html">#optional</a></li>
+                
+                <li><a href="tag-net.html">#net</a></li>
+                
+                <li><a href="tag-recursividade.html">#recursividade</a></li>
+                
+                <li><a href="tag-desenvolvimento-java.html">#desenvolvimento-java</a></li>
+                
+                <li><a href="tag-sql.html">#sql</a></li>
+                
+                <li><a href="tag-java.html">#java</a></li>
+                
+                <li><a href="tag-nosql.html">#nosql</a></li>
+                
+                <li><a href="tag-git.html">#git</a></li>
+                
+                <li><a href="tag-mvc.html">#mvc</a></li>
+                
+                <li><a href="tag-asp-net-core.html">#asp-net-core</a></li>
+                
+                <li><a href="tag-programacao-funcional.html">#programacao-funcional</a></li>
+                
+                <li><a href="tag-lambda.html">#lambda</a></li>
+                
+                <li><a href="tag-javascript.html">#javascript</a></li>
+                
+                <li><a href="tag-tipos-de-dados.html">#tipos-de-dados</a></li>
+                
+                <li><a href="tag-banco-de-dados.html">#banco-de-dados</a></li>
+                
+                <li><a href="tag-stream-api.html">#stream-api</a></li>
+                
+                <li><a href="tag-design-patterns.html">#design-patterns</a></li>
+                
+                <li><a href="tag-versionamento.html">#versionamento</a></li>
+                
+                </ul>
+            </article>
+            <article>
+                <header>Arquivos</header>
+                <ul>
+                
+                <li><a href="archive-2026.html">2026</a></li>
+                
+                <li><a href="archive-2025.html">2025</a></li>
+                
+                </ul>
+            </article>
+        </div>
+    </div>
+</div>
+
+    </main>
+    <footer>
+        <p>Powered by <a href="https://rochacbruno.github.io/marmite/" target="_blank" rel="noopener">Marmite</a> | <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC-BY_NC-SA</a></p>
+    </footer>
+    <script src="static/custom.js"></script>
+</body>
+</html>
